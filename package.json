@@ -1,0 +1,14 @@
+{
+  "name": "zillion",
+  "version": "1.0.0",
+  "description": "Real Estate ",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "author": "",
+  "license": "ISC"
+}
