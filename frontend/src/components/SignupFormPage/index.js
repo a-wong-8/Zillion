@@ -33,7 +33,7 @@ export default function SignupFormPage() {
               else setErrors([res.statusText]);
             });
           }
-          return setErrors(['The Confirm Password field must be the same as the Password field!']);
+          return setErrors(['Confirm Password field must be the same as the Password field!']);
     }
 
     return (
@@ -50,6 +50,7 @@ export default function SignupFormPage() {
             <br></br>
 
             <label>Password: 
+              
                 <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} required placeholder="Enter password"/>
             </label>
             <br></br>
