@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom"
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
+// import SignupFormModal from "../SignupFormPage/SignupForm";
 import './Navigation.css'
-import SignupFormModal from "../SignupFormPage/SignupForm";
 
 export default function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -31,6 +31,9 @@ export default function Navigation() {
                 <li>
                     <NavLink exact to="/">Home</NavLink>
                     {sessionLinks}
+
+                    <NavLink exact to="/sell">Sell</NavLink>
+                    
                 </li>
             </ul>
         </>

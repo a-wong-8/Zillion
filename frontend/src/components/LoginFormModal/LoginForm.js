@@ -71,7 +71,7 @@ const LoginForm = () => {
                 </label>
                 <br></br>
 
-                    <label className="password" for="input-box">Password
+                    <label className="password" >Password
                         <input id="input-box" type="password" value={password} onChange={(e)=>setPassword(e.target.value)} required placeholder="Enter password"/>
                     </label>
                 <br></br>
@@ -93,7 +93,7 @@ const LoginForm = () => {
         <h1>Welcome to Zillion</h1>
 
         <div className="signin-link">
-          <h4><a onClick={()=>setSignIn(true)} activeClassName="active-link">Sign in</a></h4>
+          <h4><a onClick={()=>setSignIn(true)} className="active-link">Sign in</a></h4>
 
           <h5>New account</h5>
         </div>

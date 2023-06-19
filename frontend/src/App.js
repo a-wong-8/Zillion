@@ -1,8 +1,9 @@
 import React from "react";
-import { Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 // import LoginForm from "./components/LoginFormModal/LoginForm";
-// import SignupFormPage from "./components/SignupFormPage";
+import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
+import SellPage from "./components/Sell/SellPage";
 
 function App() {
   return (
@@ -10,9 +11,9 @@ function App() {
   <Navigation />
     <Switch>
 
-      {/* <Route path="/signup" > */}
-        {/* <SignupFormPage /> */}
-      {/* </Route>  */}
+      <Route path="/sell" >
+        <SellPage/>
+      </Route> 
 
     </Switch>
     </>
