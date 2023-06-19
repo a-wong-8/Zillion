@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './LoginForm.css';
 
 const LoginForm = () => {
@@ -10,8 +10,6 @@ const LoginForm = () => {
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
     const[errors, setErrors] = useState([]);
-    
-    // const sessionUser = useSelector(state => state.session.user);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -47,9 +45,7 @@ const LoginForm = () => {
             <form onSubmit={handleSubmit}>
 
                 <label className="email">Email
-
                     <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} required placeholder="Enter email"/>
-                
                 </label>
 
                 <br></br>
@@ -64,7 +60,7 @@ const LoginForm = () => {
                     <button type="submit" className="button">Sign in</button>
                 </div>
 
-                <ul>
+                <ul className="errors">
                     {errors.map(error => <li key={error}>{error}</li>)}
                 </ul>
 

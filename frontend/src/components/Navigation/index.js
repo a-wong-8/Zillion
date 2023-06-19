@@ -2,8 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom"
 import ProfileButton from "./ProfileButton";
-import './Navigation.css'
 import LoginFormModal from "../LoginFormModal";
+import './Navigation.css'
+import SignupFormModal from "../SignupFormPage/SignupForm";
 
 export default function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -18,7 +19,8 @@ export default function Navigation() {
     sessionLinks = (
       <>
         <LoginFormModal/>
-        <NavLink to="/signup">Sign Up</NavLink>
+        <SignupFormModal/>
+        {/* <NavLink to="/signup">Sign Up</NavLink> */}
       </>
     );
   }

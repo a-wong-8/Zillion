@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import './SignupForm.css';
+import { NavLink, Link } from "react-router-dom/cjs/react-router-dom";
+import LoginFormModal from "../LoginFormModal";
 
 export default function SignupFormPage() {
     const dispatch = useDispatch();
@@ -38,29 +40,56 @@ export default function SignupFormPage() {
 
     return (
         <>
-        <h1>Sign Up</h1>
-        <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error) => <li key={error}>{error}</li>)}
-        </ul>
+        <div className="x">X</div>
 
-            <label>Email: 
+        <h1>Welcome to Zillion</h1>
+
+        <div className="signin-link">
+          <h4><Link to={<LoginFormModal/>} activeClassName="active-link">Sign in</Link></h4>
+
+          <h5>New account</h5>
+        </div>
+
+        <form onSubmit={handleSubmit}>
+
+            <label className="email">Email 
                 <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} required placeholder="Enter email"/>
             </label>
             <br></br>
 
-            <label>Password: 
-              
-                <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} required placeholder="Enter password"/>
+            <label className="password">Password
+                <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} required placeholder="Create password"/>
             </label>
-            <br></br>
 
-            <label>Confirm Password: 
+            <div className="reqs-container">
+            <ul className="reqs">
+              <li>
+                At least 8 characters
+              </li>
+              <li>
+                Mix of letters and numbers
+              </li>
+              <li>
+                At least 1 special character 
+              </li>
+              <li>
+                At least 1 lowercase letter and 1 uppercase letter
+              </li>
+            </ul>
+            </div>
+
+            <ul className="errors">
+              {errors.map((error) => <li key={error}>{error}</li>)}
+            </ul>
+
+            {/* <label>Confirm Password 
                 <input type="password" value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)} required placeholder="Confirm password"/>
-            </label>
-            <br></br>
+            </label> */}
 
-            <button type="submit">Sign Up</button>
+            <button type="submit" className="button">Submit</button>
+            <p className="terms">
+              By submitting, I accept Zillion's term of use.
+            </p>
         </form>
         </>
     )

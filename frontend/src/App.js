@@ -10,9 +10,9 @@ function App() {
   <Navigation />
     <Switch>
 
-      <Route path="/signup" >
-        <SignupFormPage />
-      </Route> 
+      {/* <Route path="/signup" > */}
+        {/* <SignupFormPage /> */}
+      {/* </Route>  */}
 
     </Switch>
     </>
