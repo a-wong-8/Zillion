@@ -14,6 +14,6 @@ export default function SignupFormModal () {
                 <SignupFormPage/>
             </Modal>
             )}
-     </>
+        </>
     )
 }

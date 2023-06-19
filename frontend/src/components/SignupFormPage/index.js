@@ -3,16 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import './SignupForm.css';
-import { NavLink, Link } from "react-router-dom/cjs/react-router-dom";
-import LoginFormModal from "../LoginFormModal";
 
-export default function SignupFormPage() {
+export default function SignupFormPage(props) {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
-    const[confirmPassword, setConfirmPassword] = useState('');
+    // const[confirmPassword, setConfirmPassword] = useState('');
     const[errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
@@ -20,9 +18,10 @@ export default function SignupFormPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (password === confirmPassword) {
+        if (password) {
             setErrors([]);
             return dispatch(sessionActions.signup({ email, password }))
+
               .catch(async (res) => {
               let data;
               try {
@@ -35,17 +34,15 @@ export default function SignupFormPage() {
               else setErrors([res.statusText]);
             });
           }
-          return setErrors(['Confirm Password field must be the same as the Password field!']);
+          return setErrors(['Confirm Password requirements']);
     }
 
     return (
         <>
-        <div className="x">X</div>
-
         <h1>Welcome to Zillion</h1>
 
         <div className="signin-link">
-          <h4><Link to={<LoginFormModal/>} activeClassName="active-link">Sign in</Link></h4>
+          <h4><a activeClassName="active-link">Sign in</a></h4>
 
           <h5>New account</h5>
         </div>

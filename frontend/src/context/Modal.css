@@ -25,3 +25,14 @@
     width: 450px;
     border-radius: 8px;
 }
+
+#close-x {
+    text-align: right;
+    margin-top: 18px;
+    margin-right: 25px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+#close-x:hover {
+    cursor: pointer;
+}
