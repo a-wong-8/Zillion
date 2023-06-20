@@ -1,4 +1,4 @@
-
+import csrfFetch from "./csrf";
 
 // actions
 export const RECEIVE_LISTINGS = 'listings/RECEIVE_LISTINGS';
@@ -23,7 +23,7 @@ const removeListing = (listingId) => ({
 
 // functions
 export const fetchListings = () => async(dispatch) => {
-    const response = await fetch(`/listings`);
+    const response = await fetch(`/api/listings`);
 
     if (response.ok) {
         const listing = await response.json();
@@ -32,7 +32,7 @@ export const fetchListings = () => async(dispatch) => {
 }
 
 export const fetchListing = (listingId) => async(dispatch) => {
-    const response = await fetch(`listings/${listingId}`);
+    const response = await fetch(`/api/listings/${listingId}`);
 
     if (response.ok) {
         const post = await response.json();
@@ -41,7 +41,7 @@ export const fetchListing = (listingId) => async(dispatch) => {
 }
 
 export const createListing = (listing) => async(dispatch) => {
-    const response = await fetch(`/listings`, {
+    const response = await csrfFetch(`/api/listings`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -56,7 +56,7 @@ export const createListing = (listing) => async(dispatch) => {
 }
 
 export const updateListing = (listing) => async(dispatch) => {
-    const response = await fetch(`/listing/${listing.id}`, {
+    const response = await csrfFetch(`/api/listing/${listing.id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
@@ -71,7 +71,7 @@ export const updateListing = (listing) => async(dispatch) => {
 }
 
 export const deleteListing = (listingId) => async(dispatch) => {
-    const response = await fetch(`/listings/${listingId}`, {
+    const response = await csrfFetch(`/api/listings/${listingId}`, {
         method: "DELETE"
     });
 

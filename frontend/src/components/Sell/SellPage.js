@@ -12,7 +12,7 @@ export default function SellPage() {
     const[ bath, setBath] = useState('');
     const[ sqft, setSqft] = useState('');
     const[ lotSize, setLotSize] = useState('');
-    const[ type, setType] = useState('');
+    const[ category, setCategory] = useState('');
     const[ description, setDescription] = useState('');
     const[ price, setPrice] = useState('');
     const[ yearBuilt, setYearBuilt] = useState('');
@@ -20,6 +20,7 @@ export default function SellPage() {
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
+        e.preventDefault();
         const newListing = {
             streetAddress: streetAddress,
             city: city,
@@ -29,7 +30,7 @@ export default function SellPage() {
             bath: bath,
             sqft: sqft,
             lotSize: lotSize,
-            type: type,
+            category: category,
             description: description,
             price: price,
             yearBuilt: yearBuilt
@@ -74,16 +75,17 @@ export default function SellPage() {
                 </label>
 
                 <label>Home type
-                    <select value={type} onChange={(e)=>setType(e.target.value)}>
-                        <option >Single family</option>
-                        <option >Condo</option>
-                        <option >Townhouse</option>
-                        <option >Multi family</option>
-                        <option >Apartment</option>
-                        <option >Mobile</option>
-                        <option >Coop unit</option>
-                        <option >Vacant land</option>
-                        <option >Other</option>
+                    <select value={category} onChange={(e)=>setCategory(e.target.value)}>
+                        <option value={''} disabled>Please select type</option>
+                        <option value={'Single family'}>Single family</option>
+                        <option value={'Condo'} >Condo</option>
+                        <option value={'Townhouse'} >Townhouse</option>
+                        <option value={'Multi family'} >Multi family</option>
+                        <option value={'Apartment'} >Apartment</option>
+                        <option value={'Mobile'} >Mobile</option>
+                        <option value={'Coop unit'} >Coop unit</option>
+                        <option value={'Vacant land'} >Vacant land</option>
+                        <option value={'Other'} >Other</option>
                     </select>
                 </label>
 
