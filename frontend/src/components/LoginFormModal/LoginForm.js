@@ -53,6 +53,12 @@ const LoginForm = () => {
         }
     }
 
+    function guest () {
+      const email = "demo@user.io";
+      const password = "password";
+      return dispatch(sessionActions.login({ email, password }));
+    }
+
     if (signIn) {
       return (
         <>
@@ -79,6 +85,8 @@ const LoginForm = () => {
                 <div className="button-container">
                     <button type="submit" className="button">Sign in</button>
                 </div>
+
+                <a className="guest" onClick={()=>guest()}>Sign in as guest</a>
 
                 <ul className="errors">
                     {errors.map(error => <li key={error}>{error}</li>)}

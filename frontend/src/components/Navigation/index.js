@@ -29,11 +29,13 @@ export default function Navigation() {
         <>
             <ul>
                 <li>
-                    <NavLink exact to="/">Home</NavLink>
-                    {sessionLinks}
 
-                    <NavLink exact to="/sell">Sell</NavLink>
+                    <NavLink to=""> Buy </NavLink>
+
+                    <NavLink exact to="/sell"> Sell </NavLink>
                     
+                    <NavLink exact to="/"> Zillion </NavLink>
+                    {sessionLinks}
                 </li>
             </ul>
         </>

@@ -51,7 +51,7 @@ export const createListing = (listing) => async(dispatch) => {
 
     if (response.ok) {
         const listing = await response.json();
-        dispatch(receivePost(listing))
+        dispatch(receiveListing(listing))
     }
 }
 
@@ -76,7 +76,7 @@ export const deleteListing = (listingId) => async(dispatch) => {
     });
 
     if (response.ok) {
-        dispatch(removeListing(postId))
+        dispatch(removeListing(listingId))
     }
 }
 

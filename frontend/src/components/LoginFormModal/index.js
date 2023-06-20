@@ -7,7 +7,7 @@ export default function LoginFormModal () {
 
     return (
         <>
-            <a onClick={()=>setShowModal(true)}>Sign in</a>
+            <a onClick={()=>setShowModal(true)}> Sign in </a>
             
             {showModal && (
             <Modal onClose={()=> setShowModal(false)}>
