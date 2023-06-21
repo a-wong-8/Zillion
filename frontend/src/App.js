@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import SellPage from "./components/Sell/SellPage";
 import BuyPage from "./components/Buy/BuyPage";
+import MyListingsPage from "./components/Sell/MyListingsPage";
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
 
       <Route path="/sell" >
         <SellPage/>
+      </Route> 
+
+      <Route path="/mylistings/:userId" component={MyListingsPage} >
+        {/* <MyListingsPage/> */}
       </Route> 
 
       {/* <Route path="/listings" >

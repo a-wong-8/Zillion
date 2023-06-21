@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from '../../store/session'
+import MyListingsPage from "../Sell/MyListingsPage";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function ProfileButton({user}) {
     const dispatch = useDispatch();
@@ -40,7 +42,8 @@ export default function ProfileButton({user}) {
           <li>{user.username}</li>
           <li>{user.email}</li>
 
-          <button>My Listings</button>
+          {/* <button onClick={()=><MyListingsPage/>} >My Listings</button> */}
+          <Link to={`/mylistings/${user.id}`}>My Listings</Link>
 
           <li>
             <button onClick={logout}>Log Out</button>

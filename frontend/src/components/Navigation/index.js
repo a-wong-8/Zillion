@@ -21,8 +21,6 @@ export default function Navigation() {
     sessionLinks = (
       <>
         <LoginFormModal/>
-        {/* <SignupFormModal/> */}
-        {/* <NavLink to="/signup">Sign Up</NavLink> */}
       </>
     );
   }

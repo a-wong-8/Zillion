@@ -11,14 +11,13 @@ class Api::ListingsController < ApplicationController
     end
     
     def create 
-        # @user_id = current_user.id
+        # @user_id = current_user.id // wrong way 
         @listing = Listing.new(listing_params)
         @listing.user_id = current_user.id
         
         if @listing.save
             render :show
         else
-            # debugger
             render json: @listing.errors.full_messages, status: 422
         end
     end
@@ -34,6 +33,7 @@ class Api::ListingsController < ApplicationController
     end
     
     def destroy
+        @listing = Listing.find_by(id: params[:id])
         @listing.destroy
         head :no_content
     end

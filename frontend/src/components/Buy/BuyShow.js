@@ -10,4 +10,4 @@ export default function BuyShow() {
     )
 }
 
-// shows one selected house 
+// page that shows one selected house 
