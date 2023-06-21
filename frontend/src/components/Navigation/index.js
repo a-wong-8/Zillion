@@ -13,7 +13,9 @@ export default function Navigation() {
 
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <>
+        <ProfileButton user={sessionUser} />
+      </>
     );
   } else {
     sessionLinks = (
@@ -30,12 +32,13 @@ export default function Navigation() {
             <ul>
                 <li>
 
-                    <NavLink to=""> Buy </NavLink>
+                    {/* <NavLink to="/listings"> Buy </NavLink> */}
 
                     <NavLink exact to="/sell"> Sell </NavLink>
                     
                     <NavLink exact to="/"> Zillion </NavLink>
                     {sessionLinks}
+                    
                 </li>
             </ul>
         </>

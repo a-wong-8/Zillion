@@ -5,14 +5,16 @@ class Api::ListingsController < ApplicationController
     def index 
         @listings = Listing.all
     end
-
+    
     def show
         @listing = Listing.find_by(id: params[:id])
     end
-
+    
     def create 
+        # @user_id = current_user.id
         @listing = Listing.new(listing_params)
-
+        @listing.user_id = current_user.id
+        
         if @listing.save
             render :show
         else

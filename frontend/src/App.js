@@ -4,16 +4,27 @@ import { Switch, Route } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import SellPage from "./components/Sell/SellPage";
+import BuyPage from "./components/Buy/BuyPage";
 
 function App() {
   return (
     <>
   <Navigation />
+
+
     <Switch>
+
+      <Route exact path="/" >
+        <BuyPage/>
+      </Route> 
 
       <Route path="/sell" >
         <SellPage/>
       </Route> 
+
+      {/* <Route path="/listings" >
+        <BuyPage/>
+      </Route>  */}
 
     </Switch>
     </>

@@ -11,16 +11,17 @@
 #  bath           :integer          not null
 #  sqft           :integer          not null
 #  lot_size       :integer          not null
-#  type           :string           not null
+#  category       :string           not null
 #  description    :text             not null
 #  price          :integer          not null
 #  year_built     :integer          not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  user_id        :integer          not null
 #
 class Listing < ApplicationRecord
-    validates :street_address, :city, :state, :zip_code, :bed, :bath, :sqft, :lot_size, :category, :description, :price, :year_built, presence: true
-    validates :street_address, uniqueness: true 
+    validates :city, :state, :zip_code, :bed, :bath, :sqft, :lot_size, :category, :description, :price, :year_built, presence: true
+    validates :street_address, presence: true, uniqueness: true 
     validates :state, :bed, :bath, length: {in: 1..2} 
     validates :year_built, length: {is: 4}
 
@@ -35,4 +36,7 @@ class Listing < ApplicationRecord
         category8: 'Vacant land',
         category9: 'Other'
       }
+
+      belongs_to :user,
+      foreign_key: :user_id
 end

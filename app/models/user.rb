@@ -18,6 +18,9 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
+  has_many :listings
+  has_many :saves
+
   def self.find_by_credentials(email, password)
       user = User.find_by(email: email)
       if user && user.is_valid_password?(password)

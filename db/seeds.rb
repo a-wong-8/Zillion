@@ -30,6 +30,60 @@ ApplicationRecord.transaction do
       }) 
     end
   
-    puts "Done!"
+    
+    Listing.delete_all
+    
+    puts 'Creating seed data...'
+    a = Listing.create!(
+      street_address: '15525 Maubert Ave',
+      city: 'San Leandro',
+      state: 'CA',
+      zip_code: 94578,
+      bed: 3,
+      bath: 1,
+      sqft: 884,
+      lot_size: 5227,
+      category: 'Single family',
+      description: 'Welcome to this charming single-family residence.',
+      price: 675000,
+      year_built: 1948,
+      user_id: 1
+      )
+
+      b = Listing.create!(
+        street_address: '981 Purdue St',
+        city: 'San Leandro',
+        state: 'CA',
+        zip_code: 94579,
+        bed: 3,
+        bath: 1,
+        sqft: 1081,
+        lot_size: 5227,
+        category: 'Single family',
+        description: 'Washington Manor home with convenient access.',
+        price: 772800,
+        year_built: 1951,
+        user_id: 1
+        )
+
+      c = Listing.create!(
+        street_address: '3300 Glenly Rd',
+        city: 'Oakland',
+        state: 'CA',
+        zip_code: 94605,
+        bed: 3,
+        bath: 2,
+        sqft: 1528,
+        lot_size: 10454,
+        category: 'Single family',
+        description: 'Amazing fixer OPPORTUNITY!!!',
+        price: 385000,
+        year_built: 1960,
+        user_id: 2
+        )
+      
+      puts "Done!"
   end
+
+
   

@@ -40,6 +40,8 @@ export default function ProfileButton({user}) {
           <li>{user.username}</li>
           <li>{user.email}</li>
 
+          <button>My Listings</button>
+
           <li>
             <button onClick={logout}>Log Out</button>
           </li>

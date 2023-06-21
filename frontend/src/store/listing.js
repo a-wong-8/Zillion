@@ -35,8 +35,8 @@ export const fetchListing = (listingId) => async(dispatch) => {
     const response = await fetch(`/api/listings/${listingId}`);
 
     if (response.ok) {
-        const post = await response.json();
-        dispatch(receiveListing(post))
+        const listing = await response.json();
+        dispatch(receiveListing(listing))
     }
 }
 
