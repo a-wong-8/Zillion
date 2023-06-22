@@ -1,0 +1,29 @@
+.header {
+    background-color: #ffffff;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-nav {
+    flex-grow: 1;
+}
+
+.header > ul {
+    display: flex;
+}
+
+.header-list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+}
+
+.header-list-item {
+    margin-left: 50px;
+    margin-right: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+

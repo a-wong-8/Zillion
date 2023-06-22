@@ -1,17 +1,17 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-// import LoginForm from "./components/LoginFormModal/LoginForm";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import SellPage from "./components/Sell/SellPage";
 import BuyPage from "./components/Buy/BuyPage";
 import MyListingsPage from "./components/Sell/MyListingsPage";
+import EditPage from "./components/Sell/EditPage";
 
 function App() {
   return (
     <>
-  <Navigation />
 
+  <Navigation />
 
     <Switch>
 
@@ -19,13 +19,12 @@ function App() {
         <BuyPage/>
       </Route> 
 
-      <Route path="/sell" >
-        <SellPage/>
-      </Route> 
+      <Route exact path="/sell" component={SellPage}/>
 
-      <Route path="/mylistings/:userId" component={MyListingsPage} >
-        {/* <MyListingsPage/> */}
-      </Route> 
+      <Route exact path="/mylistings/listings/:listingId/edit" component={EditPage}/>
+
+      <Route exact path="/mylistings/:userId" component={MyListingsPage}/>
+
 
       {/* <Route path="/listings" >
         <BuyPage/>

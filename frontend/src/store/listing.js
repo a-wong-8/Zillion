@@ -56,7 +56,7 @@ export const createListing = (listing) => async(dispatch) => {
 }
 
 export const updateListing = (listing) => async(dispatch) => {
-    const response = await csrfFetch(`/api/listing/${listing.id}`, {
+    const response = await csrfFetch(`/api/listings/${listing.id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"

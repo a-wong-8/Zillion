@@ -1,1 +1,1 @@
-json.extract! @listing, :id, :street_address, :city, :state, :zip_code, :bed, :bath, :sqft, :lot_size, :category, :description, :price, :year_built, :user_id
+json.extract! @listing, :id, :street_address, :city, :state, :zip_code, :bed, :bath, :sqft, :lot_size, :category, :description, :price, :year_built

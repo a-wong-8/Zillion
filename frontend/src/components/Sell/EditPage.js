@@ -1,48 +1,75 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux"
-import { createListing } from "../../store/listing";
-import './SellPage.css'
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min"
+import { fetchListing, updateListing } from "../../store/listing";
+import { useEffect, useState } from "react";
 
-export default function SellPage() {
-    const[ streetAddress, setStreetAddress] = useState('');
-    const[ city, setCity] = useState('');
-    const[ state, setState ] = useState('');
-    const[ zipCode, setZipCode] = useState('');
-    const[ bed, setBed] = useState('');
-    const[ bath, setBath] = useState('');
-    const[ sqft, setSqft] = useState('');
-    const[ lotSize, setLotSize] = useState('');
-    const[ category, setCategory] = useState('');
-    const[ description, setDescription] = useState('');
-    const[ price, setPrice] = useState('');
-    const[ yearBuilt, setYearBuilt] = useState('');
-
+export default function EditPage() {
     const dispatch = useDispatch();
+    const {listingId} = useParams();
+    let listing = useSelector((state)=>state.listings[listingId])
+
+    useEffect(()=>{
+        dispatch(fetchListing(listingId))
+    },[dispatch, listingId])
+
+     if (listing === undefined) {
+        listing = {
+            streetAddress: '',
+            city: '',
+            state: '',
+            zipCode: '',
+            bed: '',
+            bath: '',
+            sqft: '',
+            lotSize: '',
+            category: '',
+            description: '',
+            price: '',
+            yearBuilt: ''
+        }
+    } 
+    // add comp and only render form when listing is completed being fetched 
+    // then dont need undefined listing 
+    // form component then send listing as prop if listing is loaded 
+    console.log(listing.streetAddress);
+    
+    const[ streetAddress, setStreetAddress] = useState(listing.streetAddress);
+    const[ city, setCity] = useState(listing.city);
+    const[ state, setState ] = useState(listing.state);
+    const[ zipCode, setZipCode] = useState(listing.zipCode);
+    const[ bed, setBed] = useState(listing.bed);
+    const[ bath, setBath] = useState(listing.bath);
+    const[ sqft, setSqft] = useState(listing.sqft);
+    const[ lotSize, setLotSize] = useState(listing.lotSize);
+    const[ category, setCategory] = useState(listing.category);
+    const[ description, setDescription] = useState(listing.description);
+    const[ price, setPrice] = useState(listing.price);
+    const[ yearBuilt, setYearBuilt] = useState(listing.yearBuilt);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        const newListing = {
-            streetAddress: streetAddress,
-            city: city,
-            state: state,
-            zipCode: zipCode,
-            bed: bed,
-            bath: bath,
-            sqft: sqft,
-            lotSize: lotSize,
-            category: category,
-            description: description,
-            price: price,
-            yearBuilt: yearBuilt
-        }
-        dispatch(createListing(newListing));
+        const listingFill = {
+                ...listing,
+                streetAddress: streetAddress,
+                city: city,
+                state: state,
+                zipCode: zipCode,
+                bed: bed,
+                bath: bath,
+                sqft: sqft,
+                lotSize: lotSize,
+                category: category,
+                description: description,
+                price: price,
+                yearBuilt: yearBuilt
+            }
+            dispatch(updateListing(listingFill));
     }
 
     return (
         <>
-            <h1>For Sale By Owner Listing</h1>
-            <form className="listing-form" onSubmit={handleSubmit}>
+            <h1>Edit Listing</h1>
+            <form className="edit-form" onSubmit={handleSubmit}>
                 <label>Street address
                     <input value={streetAddress} type="text" onChange={(e)=>setStreetAddress(e.target.value)} required/>
                 </label>
@@ -102,7 +129,7 @@ export default function SellPage() {
                     <input value={yearBuilt} type="integer" onChange={(e)=>setYearBuilt(e.target.value)} required/>
                 </label>
 
-                <button type="submit" className="post-button">Post for sale by owner</button>
+                <button type="submit" className="edit-button">Edit listing</button>
             </form>
         </>
     )

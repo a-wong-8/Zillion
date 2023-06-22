@@ -27,18 +27,21 @@ export default function Navigation() {
 
     return (
         <>
-            <ul>
-                <li>
-
-                    {/* <NavLink to="/listings"> Buy </NavLink> */}
-
+        <header className="header">
+          <nav className="header-nav">
+            <ul className="header-list">
+                <li className="header-list-item">
                     <NavLink exact to="/sell"> Sell </NavLink>
-                    
+                </li>
+                <li className="header-list-item" id="home">
                     <NavLink exact to="/"> Zillion </NavLink>
-                    {sessionLinks}
-                    
+                </li>
+                <li className="header-list-item">
+                    {sessionLinks}  
                 </li>
             </ul>
+          </nav>
+        </header>
         </>
     );
 }
