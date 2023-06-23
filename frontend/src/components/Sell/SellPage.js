@@ -16,28 +16,36 @@ export default function SellPage() {
     const[ description, setDescription] = useState('');
     const[ price, setPrice] = useState('');
     const[ yearBuilt, setYearBuilt] = useState('');
+    const[ imageFile, setImageFile] = useState (null);
 
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const formData = new FormData();
+        
+        formData.append('listing[streetAddress]', streetAddress);
+        formData.append('listing[city]', city);
+        formData.append('listing[state]', state);
+        formData.append('listing[zipCode]', zipCode);
+        formData.append('listing[bed]', bed);
+        formData.append('listing[bath]', bath);
+        formData.append('listing[sqft]', sqft);
+        formData.append('listing[lotSize]', lotSize);
+        formData.append('listing[category]', category);
+        formData.append('listing[description]', description);
+        formData.append('listing[price]', price);
+        formData.append('listing[yearBuilt]', yearBuilt);
 
-        const newListing = {
-            streetAddress: streetAddress,
-            city: city,
-            state: state,
-            zipCode: zipCode,
-            bed: bed,
-            bath: bath,
-            sqft: sqft,
-            lotSize: lotSize,
-            category: category,
-            description: description,
-            price: price,
-            yearBuilt: yearBuilt
-        }
-        dispatch(createListing(newListing));
+        if (imageFile) formData.append('listing[images]', imageFile);
+        
+        dispatch(createListing(formData));
     }
+    
+    const handleFile = ({ currentTarget }) => {
+        const file = currentTarget.files[0];
+        setImageFile(file);
+      }
 
     return (
         <>
@@ -100,6 +108,10 @@ export default function SellPage() {
 
                 <label>Year built
                     <input value={yearBuilt} type="integer" onChange={(e)=>setYearBuilt(e.target.value)} required/>
+                </label>
+
+                <label>Upload photos
+                    <input type="file" onChange={handleFile}/>
                 </label>
 
                 <button type="submit" className="post-button">Post for sale by owner</button>

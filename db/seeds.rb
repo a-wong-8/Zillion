@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-ApplicationRecord.transaction do 
+require "open-uri"
+
+# ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
@@ -31,7 +33,7 @@ ApplicationRecord.transaction do
     end
   
     
-    Listing.delete_all
+    Listing.destroy_all
     
     puts 'Creating seed data...'
     a = Listing.create!(
@@ -82,8 +84,28 @@ ApplicationRecord.transaction do
         user_id: 2
         )
       
-      puts "Done!"
-  end
+        # Bench.first(3).each_with_index do |bench, index|
+        #   bench.photo.attach(
+        #     # The string passed to URI.open should be the URL of the image in its bucket.
+        #     # This sample assumes the bucket name is `benchbnb-seeds`.
+        #     io: URI.open("https://zillion-seeds.s3.us-west-1.amazonaws.com/banner2.png"), 
+        #     filename: "bench_#{index + 1}.jpg"
+        #     )
+        #   end
 
+        # end
+        
+        a.images.attach(
+          io: URI.open("https://zillion-seeds.s3.us-west-1.amazonaws.com/a.jpg"), 
+          filename: "a.jpg"
+          )
+        b.images.attach(
+          io: URI.open("https://zillion-seeds.s3.us-west-1.amazonaws.com/b.jpg"), 
+          filename: "b.jpg"
+          )
+        c.images.attach(
+          io: URI.open("https://zillion-seeds.s3.us-west-1.amazonaws.com/c.jpg"), 
+          filename: "c.jpg"
+          )
 
-  
+puts "Done!"

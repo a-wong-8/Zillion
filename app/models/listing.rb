@@ -25,6 +25,12 @@ class Listing < ApplicationRecord
     validates :state, :bed, :bath, length: {in: 1..2} 
     validates :year_built, length: {is: 4}
 
+    has_many_attached :images
+
+    belongs_to :user,
+      foreign_key: :user_id,
+      class_name: :User
+    
     enum category: {
         category1: 'Single family',
         category2: 'Condo',
@@ -37,6 +43,4 @@ class Listing < ApplicationRecord
         category9: 'Other'
       }
 
-      belongs_to :user,
-      foreign_key: :user_id
-end
+  end

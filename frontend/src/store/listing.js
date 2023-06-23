@@ -40,13 +40,14 @@ export const fetchListing = (listingId) => async(dispatch) => {
     }
 }
 
-export const createListing = (listing) => async(dispatch) => {
+export const createListing = (FormData) => async(dispatch) => {
     const response = await csrfFetch(`/api/listings`, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(listing)
+        // headers: {
+        //     "Content-Type": "application/json"
+        // },
+        // body: JSON.stringify(listing)
+        body: FormData
     });
 
     if (response.ok) {

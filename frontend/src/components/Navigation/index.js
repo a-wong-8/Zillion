@@ -30,12 +30,16 @@ export default function Navigation() {
         <header className="header">
           <nav className="header-nav">
             <ul className="header-list">
+
                 <li className="header-list-item">
+                    <NavLink exact to="/buy"> Buy </NavLink>
                     <NavLink exact to="/sell"> Sell </NavLink>
                 </li>
+
                 <li className="header-list-item" id="home">
-                    <NavLink exact to="/"> Zillion </NavLink>
+                    <NavLink exact to="/">🏠 Zillion</NavLink>
                 </li>
+
                 <li className="header-list-item">
                     {sessionLinks}  
                 </li>
