@@ -35,7 +35,7 @@
     text-shadow: 1px 1px 3px black;
     top: -80%;
     transform: translate(50%, -50%);
-    font-size: 30px;
+    font-size: 36px;
 }
 
 .display-container {
@@ -49,3 +49,39 @@
 img { 
     width: 500px;
 }
+
+.buy-page-container {
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    height: 100vh;
+}
+
+.buy-page-map {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.buy-page-listings {
+    grid-column: 2;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 595px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    height: 150px;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .search-results a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }

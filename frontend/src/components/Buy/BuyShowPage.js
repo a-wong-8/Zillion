@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchListing } from "../../store/listing";
+import Geocode from "../Map/Geocode";
 
 export default function BuyShowPage() {
     const dispatch = useDispatch();
@@ -12,11 +13,9 @@ export default function BuyShowPage() {
         dispatch(fetchListing(listingId))
     },[dispatch, listingId])
 
-    if (listing === undefined) {
-        return null
-    }
+    if (listing === undefined) return null;
 
-    console.log(listing);
+    const location = `${listing.streetAddress} ${listing.city}`;
 
     return (
         <>
@@ -25,10 +24,10 @@ export default function BuyShowPage() {
             <h3>   {listing.bed} bds | {listing.bath} ba | {listing.sqft} sqft | {listing.category}</h3>
 
             <h4>{listing.description}</h4>
-
             <h4>Year built: {listing.yearBuilt}</h4>
-
             <h4><img src={listing.imageUrl}/></h4>
+            
+            <Geocode location={location}/>
         </>
     )
 }

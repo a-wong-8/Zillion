@@ -10,5 +10,9 @@
     "build": "npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@react-google-maps/api": "^2.18.1",
+    "dotenv": "^16.3.1"
+  }
 }
