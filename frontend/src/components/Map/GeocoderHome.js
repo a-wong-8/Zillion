@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Marker } from '@react-google-maps/api';
 
-export default function GeocoderHome({location, price}) {
+export default function GeocoderHome({location, price, id}) {
     const [geolocation, setGeolocation] = useState('null')
     const geocoder = new window.google.maps.Geocoder();
     let address;
@@ -18,10 +18,13 @@ export default function GeocoderHome({location, price}) {
         }});
     }, [address, location]);
 
+    const handleClick = () => {
+      window.location.href = `/listings/${id}`;
+    }
+
 return (
     <>
-      <Marker position={geolocation} label={price}/>
+      <Marker position={geolocation} label={price} onClick={handleClick}/>
     </>
-)
-
+  )
 }

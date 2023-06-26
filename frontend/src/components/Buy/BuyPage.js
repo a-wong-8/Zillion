@@ -23,6 +23,7 @@ export default function BuyPage () {
 
     return (
         <div className="buy-page-container">
+            
             <div className="buy-page-listings">
                 <BuyListing/>
             </div>
@@ -33,11 +34,15 @@ export default function BuyPage () {
                 zoom={10}
                 center={defaultCenter}>
 
-                {listings.map(listing => <GeocoderHome key={listing.id} location={`${listing.streetAddress}, ${listing.city}`} price={formatNumber(listing.price)}/>
-                    )}
-
+                {listings.map(listing => <GeocoderHome 
+                    key={listing.id} 
+                    location={`${listing.streetAddress}, ${listing.city}`} 
+                    price={formatNumber(listing.price)} 
+                    id={listing.id}/>
+                )}
             </GoogleMap>
             </div>
+
         </div>
     )
 }

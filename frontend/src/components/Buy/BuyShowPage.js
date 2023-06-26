@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchListing } from "../../store/listing";
+import { useEffect } from "react";
 import Geocode from "../Map/Geocode";
 
 export default function BuyShowPage() {
@@ -25,7 +25,7 @@ export default function BuyShowPage() {
 
             <h4>{listing.description}</h4>
             <h4>Year built: {listing.yearBuilt}</h4>
-            <h4><img src={listing.imageUrl}/></h4>
+            <h4><img src={listing.imageUrl} alt=""/></h4>
             
             <Geocode location={location}/>
         </>

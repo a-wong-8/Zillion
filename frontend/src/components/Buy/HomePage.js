@@ -10,14 +10,15 @@ export default function HomePage () {
     const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     
-    const slogan = ['This. The. House.', 'Find it. Buy it. Repeat it.', 'Home Is Where Your Story Begins.'];
-    let item = slogan[Math.floor(Math.random() * slogan.length)];
+    // const slogan = ['This. The. House.', 'Find it. Buy it. Repeat it.', 'Home Is Where Your Story Begins.'];
+    // let item = slogan[Math.floor(Math.random() * slogan.length)];
     
     let newListing;
 
     useEffect(()=> {
         newListing = listings.filter(listing => 
-            (listing.streetAddress.toLowerCase().includes(query.toLowerCase())) || listing.city.toLowerCase().includes(query.toLowerCase()));
+            (listing.streetAddress.toLowerCase().includes(query.toLowerCase())) || 
+            listing.city.toLowerCase().includes(query.toLowerCase()));
         setSearchResults(newListing);
     },[query])
 
