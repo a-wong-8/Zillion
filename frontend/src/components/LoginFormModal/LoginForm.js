@@ -120,7 +120,7 @@ const LoginForm = () => {
             <div className="reqs-container">
             <ul className="reqs">
               <li>
-                At least 8 characters
+                At least 6 characters
               </li>
               <li>
                 Mix of letters and numbers

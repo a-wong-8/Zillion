@@ -8,10 +8,18 @@ export default function EditPageForm() {
     const dispatch = useDispatch();
     const {listingId} = useParams();
     let listing = useSelector((state)=>state.listings[listingId])
-
+    const user = useSelector((state)=> Object.values(state.session))
+    
     useEffect(()=>{
         dispatch(fetchListing(listingId))
     },[dispatch, listingId])
+
+    useEffect(() => {
+        if (user[0].id !== listing.userId) {
+            window.alert('Please sign in to edit listing.')
+            window.location.href = `/`;
+        }
+    }, [])
 
     const[ streetAddress, setStreetAddress] = useState(listing.streetAddress);
     const[ city, setCity] = useState(listing.city);
@@ -44,6 +52,7 @@ export default function EditPageForm() {
             yearBuilt: yearBuilt
         }
         dispatch(updateListing(listingFill));
+        window.alert('Listing has been successfully edited.')
     }
 
     return (

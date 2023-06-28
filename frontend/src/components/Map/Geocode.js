@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import MapContainer from './Map';
 
 const Geocode = ({location}) => {
-  const [geolocation, setGeolocation] = useState('null')
+  const [geolocation, setGeolocation] = useState(null)
   const geocoder = new window.google.maps.Geocoder();
 
     let address;
@@ -17,7 +17,7 @@ const Geocode = ({location}) => {
             lng: location.lng()
          });
     }});
-}, [address]);
+}, [location]);
 
   return (
     <div className='map'>

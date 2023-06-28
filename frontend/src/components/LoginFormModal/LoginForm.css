@@ -1,6 +1,6 @@
-* {
-    /* font-family: Arial, Helvetica, sans-serif; */
-}
+/* * {
+    font-family: Arial, Helvetica, sans-serif;
+} */
 
 h1 {
     display: flex;
@@ -55,7 +55,6 @@ a {
 a:hover {
     color: rgb(0, 112, 248);
 }
-
 
 .email, .password {
     font-size: 15px;
@@ -159,4 +158,5 @@ input[type=text]:focus, input[type=password]:focus {
 .guest {
     padding-top: 12px;
     font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import BuyListing from './BuyListing'
-import banner from './banner2.png'
+import banner from './banner3.png'
 import './BuyPage.css'
 
 export default function HomePage () {
@@ -18,7 +18,8 @@ export default function HomePage () {
     useEffect(()=> {
         newListing = listings.filter(listing => 
             (listing.streetAddress.toLowerCase().includes(query.toLowerCase())) || 
-            listing.city.toLowerCase().includes(query.toLowerCase()));
+            listing.city.toLowerCase().includes(query.toLowerCase()) || 
+            listing.zipCode.toString().includes(query));
         setSearchResults(newListing);
     },[query])
 
@@ -43,7 +44,7 @@ export default function HomePage () {
                             <ul key={listing.streetAddress}>
                                 <li key={listing.id}>  
                                     <Link to={`/listings/${listing.id}`}>
-                                    {listing.streetAddress}, {listing.city} {listing.zipCode} 
+                                    {listing.streetAddress}, {listing.city} {listing.zipCode}
                                     </Link>
                                 </li>
                             </ul>
