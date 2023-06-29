@@ -48,3 +48,11 @@
     padding-top: 15px;
     font-family: sans-serif;
 }
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px;
+}

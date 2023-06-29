@@ -70,7 +70,7 @@ const LoginForm = () => {
                 <h5><a onClick={()=>setSignIn(false)} className="active-link">New account</a></h5>
             </div>
 
-            <form onSubmit={handleSubmit}>
+            <form id="login-form" onSubmit={handleSubmit}>
 
                 <label className="email">Email
                     <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} required placeholder="Enter email"/>
@@ -106,7 +106,7 @@ const LoginForm = () => {
           <h5>New account</h5>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form id="login-form" onSubmit={handleSubmit}>
 
             <label className="email">Email 
                 <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} required placeholder="Enter email"/>

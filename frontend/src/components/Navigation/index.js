@@ -37,7 +37,7 @@ export default function Navigation() {
                     <NavLink exact to="/sell"> Sell </NavLink>
                 </li>
 
-                <li className="header-list-item" id="home">
+                <li id="home">
                     <NavLink exact to="/">
                       <img id="logo"src={logo}/>
                       {/* 🏠 Zillion */}

@@ -116,7 +116,7 @@ a:hover {
     padding-top: 20px;
 }
 
-form {
+#login-form {
     display: flex;
     flex-direction: column;
     justify-content: center;

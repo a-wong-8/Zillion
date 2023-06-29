@@ -56,70 +56,178 @@ export default function EditPageForm() {
     }
 
     return (
-        <>
-        <h1>Edit Listing</h1>
-        <form className="edit-form" onSubmit={handleSubmit}>
-            <label>Street address
-                <input value={streetAddress} type="text" onChange={(e)=>setStreetAddress(e.target.value)} required/>
-            </label>
+    //     <>
+    //     <h1>Edit Listing</h1>
+    //     <form className="edit-form" onSubmit={handleSubmit}>
+    //         <label>Street address
+    //             <input value={streetAddress} type="text" onChange={(e)=>setStreetAddress(e.target.value)} required/>
+    //         </label>
 
-            <label>City
-                <input value={city} type="text" onChange={(e)=>setCity(e.target.value)} required/>
-            </label>
+    //         <label>City
+    //             <input value={city} type="text" onChange={(e)=>setCity(e.target.value)} required/>
+    //         </label>
 
-            <label>State
-                <input value={state} type="text" onChange={(e)=>setState(e.target.value)} required/>
-            </label>
+    //         <label>State
+    //             <input value={state} type="text" onChange={(e)=>setState(e.target.value)} required/>
+    //         </label>
 
-            <label>Zip code
-                <input value={zipCode} type="integer" onChange={(e)=>setZipCode(e.target.value)} required/>
-            </label>
+    //         <label>Zip code
+    //             <input value={zipCode} type="integer" onChange={(e)=>setZipCode(e.target.value)} required/>
+    //         </label>
 
-            <label>Bed
-                <input value={bed} type="integer" onChange={(e)=>setBed(e.target.value)} required/>
-            </label>
+    //         <label>Bed
+    //             <input value={bed} type="integer" onChange={(e)=>setBed(e.target.value)} required/>
+    //         </label>
 
-            <label>Bath
-                <input value={bath} type="integer" onChange={(e)=>setBath(e.target.value)} required/>
-            </label>
+    //         <label>Bath
+    //             <input value={bath} type="integer" onChange={(e)=>setBath(e.target.value)} required/>
+    //         </label>
 
-            <label>Finished square feet
-                <input value={sqft} type="integer" onChange={(e)=>setSqft(e.target.value)} required/>
-            </label>
+    //         <label>Finished square feet
+    //             <input value={sqft} type="integer" onChange={(e)=>setSqft(e.target.value)} required/>
+    //         </label>
 
-            <label>Lot size
-                <input value={lotSize} type="integer" onChange={(e)=>setLotSize(e.target.value)} required/>
-            </label>
+    //         <label>Lot size
+    //             <input value={lotSize} type="integer" onChange={(e)=>setLotSize(e.target.value)} required/>
+    //         </label>
 
-            <label>Home type
-                <select value={category} onChange={(e)=>setCategory(e.target.value)} required>
-                    <option value={''} disabled>Please select type</option>
-                    <option value={'Single family'}>Single family</option>
-                    <option value={'Condo'} >Condo</option>
-                    <option value={'Townhouse'} >Townhouse</option>
-                    <option value={'Multi family'} >Multi family</option>
-                    <option value={'Apartment'} >Apartment</option>
-                    <option value={'Mobile'} >Mobile</option>
-                    <option value={'Coop unit'} >Coop unit</option>
-                    <option value={'Vacant land'} >Vacant land</option>
-                    <option value={'Other'} >Other</option>
-                </select>
-            </label>
+    //         <label>Home type
+    //             <select value={category} onChange={(e)=>setCategory(e.target.value)} required>
+    //                 <option value={''} disabled>Please select type</option>
+    //                 <option value={'Single family'}>Single family</option>
+    //                 <option value={'Condo'} >Condo</option>
+    //                 <option value={'Townhouse'} >Townhouse</option>
+    //                 <option value={'Multi family'} >Multi family</option>
+    //                 <option value={'Apartment'} >Apartment</option>
+    //                 <option value={'Mobile'} >Mobile</option>
+    //                 <option value={'Coop unit'} >Coop unit</option>
+    //                 <option value={'Vacant land'} >Vacant land</option>
+    //                 <option value={'Other'} >Other</option>
+    //             </select>
+    //         </label>
 
-            <label>Describe your home
-                <textarea value={description} onChange={(e)=>setDescription(e.target.value)} required/>
-            </label>
+    //         <label>Describe your home
+    //             <textarea value={description} onChange={(e)=>setDescription(e.target.value)} required/>
+    //         </label>
 
-            <label>Set your price
-                <input value={price} type="integer" onChange={(e)=>setPrice(e.target.value)} required/>
-            </label>
+    //         <label>Set your price
+    //             <input value={price} type="integer" onChange={(e)=>setPrice(e.target.value)} required/>
+    //         </label>
 
-            <label>Year built
-                <input value={yearBuilt} type="integer" onChange={(e)=>setYearBuilt(e.target.value)} required/>
-            </label>
+    //         <label>Year built
+    //             <input value={yearBuilt} type="integer" onChange={(e)=>setYearBuilt(e.target.value)} required/>
+    //         </label>
 
-            <button type="submit" className="edit-button">Edit listing</button>
-        </form>
-    </>
+    //         <button type="submit" className="edit-button">Edit listing</button>
+    //     </form>
+    // </>
+    <div className="sell-form">
+            <h1 id="for-sale-by-owner">Edit Listing</h1>
+      
+            <form className="listing-form" onSubmit={handleSubmit}>
+
+                <label id="sell-price">Set your price
+                <br></br>
+                    <input value={price} type="integer" placeholder="$" onChange={(e)=>setPrice(e.target.value)} required/>
+                </label>
+                
+                <div id="home-facts-div">
+                    Home facts
+                </div>
+
+                <div className="home-facts-container">
+                <label>
+                    <h4 id="listing-form-h4">
+                    Street address
+                    </h4>
+                    <input value={streetAddress} type="text" onChange={(e)=>setStreetAddress(e.target.value)} required/>
+                </label>
+
+                <label>
+                    <h4 id="listing-form-h4">
+                        City
+                    </h4>
+                    <input value={city} type="text" onChange={(e)=>setCity(e.target.value)} required/>
+                </label>
+
+                <label>
+                    <h4 id="listing-form-h4">
+                        State
+                    </h4>
+                    <input value={state} type="text" onChange={(e)=>setState(e.target.value)} required/>
+                </label>
+
+                <label>
+                    <h4 id="listing-form-h4">
+                        Zip code
+                    </h4>
+                    <input value={zipCode} type="integer" onChange={(e)=>setZipCode(e.target.value)} required/>
+                </label>
+
+                <label>
+                    <h4 id="listing-form-h4">
+                        Home type
+                    </h4>
+                    <select value={category} onChange={(e)=>setCategory(e.target.value)} required>
+                        <option value={''} disabled>Please select type</option>
+                        <option value={'Single family'}>Single family</option>
+                        <option value={'Condo'} >Condo</option>
+                        <option value={'Townhouse'} >Townhouse</option>
+                        <option value={'Multi family'} >Multi family</option>
+                        <option value={'Apartment'} >Apartment</option>
+                        <option value={'Mobile'} >Mobile</option>
+                        <option value={'Coop unit'} >Coop unit</option>
+                        <option value={'Vacant land'} >Vacant land</option>
+                        <option value={'Other'} >Other</option>
+                    </select>
+                </label>
+
+                <label>
+                    <h4 id="listing-form-h4">
+                        Bed
+                    </h4>
+                    <input value={bed} type="integer" onChange={(e)=>setBed(e.target.value)} placeholder="0" required/>
+                </label>
+
+                <label>
+                    <h4 id="listing-form-h4">
+                        Bath
+                    </h4>
+                    <input value={bath} type="integer" onChange={(e)=>setBath(e.target.value)} placeholder="0" required/>
+                </label>
+
+                <label>
+                    <h4 id="listing-form-h4">
+                        Finished square feet
+                    </h4>
+                    <input value={sqft} type="integer" onChange={(e)=>setSqft(e.target.value)} required/>
+                </label>
+
+                <label>
+                <h4 id="listing-form-h4">
+                    Lot size
+                </h4>
+                    <input value={lotSize} type="integer" onChange={(e)=>setLotSize(e.target.value)} required/>
+                </label>
+
+                <label>
+                <h4 id="listing-form-h4">
+                    Year built
+                </h4>
+                    <input value={yearBuilt} type="integer" onChange={(e)=>setYearBuilt(e.target.value)} required/>
+                </label>
+
+                <label id="describe-input">
+                <h4 id="listing-form-h4">
+                    Describe your home
+                </h4>
+                    <textarea value={description} onChange={(e)=>setDescription(e.target.value)} required/>
+                </label>
+
+                </div>
+
+                <button type="submit" className="post-button">Edit post</button>
+            </form>
+        </div>
     )
 }

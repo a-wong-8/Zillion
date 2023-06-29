@@ -32,7 +32,8 @@ export default function HomePage () {
 
             <div className='search-bar-container'>
                 <div className="slogan">
-                    Find it. Buy it. Repeat.
+                    {/* Find it. Buy it. Repeat. */}
+                    Home Is Where Your Story Begins.
                      {/* { item } */}
                 </div>
 

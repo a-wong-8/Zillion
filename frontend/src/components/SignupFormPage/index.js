@@ -47,7 +47,7 @@ export default function SignupFormPage(props) {
           <h5>New account</h5>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form id="login-form" onSubmit={handleSubmit}>
 
             <label className="email">Email 
                 <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} required placeholder="Enter email"/>

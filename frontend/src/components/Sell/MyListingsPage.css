@@ -1,0 +1,54 @@
+#my-listings-h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+}
+
+.my-listings-display-container {
+    display: inline-block;
+    /* box-shadow: 0px 3px 5px #aaa; */
+    border-radius: 5px;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+#my-listings-list-container {
+    height: 260px;
+    width: 280px;
+    box-shadow: 2px 2px 2px #ccc;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+#edit-button button{
+    margin-top: 6px;
+    margin-bottom: 5px;
+    color: white;
+    background-color: rgb(44, 104, 246);
+    border: none;
+    border-radius: 2px;
+    width: 200px;
+    height: 20px;
+}
+
+#delete-button {
+    color: white;
+    background-color: rgb(44, 104, 246);
+    border: none;
+    border-radius: 2px;
+    width: 200px;
+    height: 20px;
+}
+
+#edit-button button:hover{
+    background-color: rgb(3,72,151);
+    cursor: pointer;
+}
+
+#delete-button:hover {
+    background-color: rgb(3,72,151);
+    cursor: pointer;
+}

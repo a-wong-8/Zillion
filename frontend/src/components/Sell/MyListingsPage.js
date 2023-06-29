@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { deleteListing, fetchListings } from "../../store/listing";
-import UserSaves from "./Saves";
+// import UserSaves from "./Saves";
+import './MyListingsPage.css'
 
 export default function MyListingsPage() {
     const dispatch = useDispatch();
@@ -26,15 +27,44 @@ export default function MyListingsPage() {
 
     return (
         <>
-            <h1>My Listings</h1>
+        <h1 id="my-listings-h1">
+            My Listings
+        </h1>
+
+        <div className="my-listings-display-container">
+
             {userListings.map((listing)=>(
-                <ul key={listing.id}>
-                    <li>{listing.streetAddress}</li>
-                    <NavLink to={`listings/${listing.id}/edit`}>Edit</NavLink>
-                    <button onClick={()=>handleDelete(listing.id)}>Delete</button>
+                <ul key={listing.id} id="my-listings-list-container">
+
+                    <li>
+                        <div>
+                        {listing.imageUrl && listing.imageUrl.length > 0 && (
+                            <img src={listing.imageUrl[0]} className="first-img" alt="First Image" />
+                        )}
+                        </div>
+                    </li>
+
+                    <li>
+                        <Link to={`/listings/${listing.id}`}>
+                        {listing.streetAddress}, {listing.city}, {listing.state}
+                        </Link>
+                    </li>
+                    
+                    <NavLink to={`listings/${listing.id}/edit`} id="edit-button">
+                        <button>
+                            Edit
+                        </button>
+                    </NavLink>
+                    <br></br>
+                    <button id="delete-button" onClick={()=>handleDelete(listing.id)}>
+                        Delete
+                    </button>
+
                 </ul>
             ))}
+
             {/* <UserSaves userId={userId}/> */}
+        </div>
         </>
     )
 }

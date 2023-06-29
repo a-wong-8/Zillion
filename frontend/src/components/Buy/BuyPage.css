@@ -25,6 +25,7 @@
     height: 50px;
     border-radius: 5px;
     border: 1px solid #aaa;
+    margin-top: 10px;
   }
 
 .intro {
@@ -40,8 +41,11 @@
     color: white;
     text-shadow: 1px 1px 3px black;
     top: -80%;
-    transform: translate(50%, -50%);
+    /* transform: translate(50%, -50%); */
     font-size: 36px;
+    /* text-align: center; */
+    display: flex;
+    padding-left: 50px;
 }
 
 #bed-bath, #category, #street, #city {
