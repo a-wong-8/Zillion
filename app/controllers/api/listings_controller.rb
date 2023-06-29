@@ -5,7 +5,6 @@ class Api::ListingsController < ApplicationController
     def index 
         # @listings = Listing.all
         @listings = Listing.all.sort { |a,b| b.created_at <=> a.created_at }
-        # @listing = @listings[0]
         render :index
     end
     
@@ -18,7 +17,6 @@ class Api::ListingsController < ApplicationController
         # @user_id = current_user.id // wrong way 
         @listing = Listing.new(listing_params)
         @listing.user_id = current_user.id
-        # debugger
         
         if @listing.save
             render :show

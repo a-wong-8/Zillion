@@ -1,0 +1,91 @@
+.show-page {
+    height: 100%;
+    width: 100vw;
+    justify-content: center;
+    display: flex;
+    z-index: 0;
+}
+
+.show-page-content {
+    width: 85%;
+    height: 100%;
+    box-shadow: -6px -2px 5px -5px rgba(0, 0, 0, 0.5), 6px -2px 5px -5px rgba(0, 0, 0, 0.5);
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.show-page-info {
+    grid-column: 2;
+    padding-top: 5px;
+    padding-right: 10px;
+}
+
+.show-page-imgs {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.show-page-map {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#show-price {
+    font-size: 35px;
+    font-weight: 500;
+    padding-top: 8px;
+}
+
+#show-page-address {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    width: 80%;
+}
+
+#facts-list {
+    list-style-type: disc;
+    padding-left: 15px;
+}
+
+#facts-list li {
+    padding: 5px;
+}
+
+#show-page-description h4 {
+    font-size: 22px;
+}
+
+#show-page-description p {
+    line-height: 2.7ch;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    padding-bottom: 20px;
+}
+
+#facts-list {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    width: 80%;
+}
+
+.show-page-imgs img:not(:first-child) {
+    height: 300px;
+    width: 390px;
+    padding: 2px;
+    padding-left: 0;
+}
+
+.show-page-imgs img:first-child {
+    height: 600px;
+    width: 780px;
+}
+
+.show-page-map {
+    width: auto;
+}
+
+
+

@@ -9,7 +9,7 @@ export default function BuyListing() {
 
     useEffect(()=> {
         dispatch(fetchListings())
-    },[])
+    },[dispatch])
 
     return (
         <ul>

@@ -1,9 +1,19 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux"
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux"
 import { createListing } from "../../store/listing";
 import './SellPage.css'
 
 export default function SellPage() {
+
+    const session = useSelector((state)=> Object.values(state.session))
+
+    useEffect(() => {
+        if (session[0] === null) {
+            window.alert('Please sign in or create a new account to post a listing.')
+            window.location.href = `/`;
+        }
+    }, [])
+  
     const[ streetAddress, setStreetAddress] = useState('');
     const[ city, setCity] = useState('');
     const[ state, setState ] = useState('');
@@ -20,7 +30,7 @@ export default function SellPage() {
 
     const dispatch = useDispatch();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         const formData = new FormData();
         
@@ -39,7 +49,13 @@ export default function SellPage() {
 
         if (imageFile) formData.append('listing[images]', imageFile);
         
-        dispatch(createListing(formData));
+        try  {
+            const listing = await (dispatch(createListing(formData)))
+            window.alert('Listing was successfully posted.')
+            window.location.href = `/`;
+        } catch (error) {
+            window.alert(error)
+        }
     }
     
     const handleFile = ({ currentTarget }) => {
@@ -111,7 +127,7 @@ export default function SellPage() {
                 </label>
 
                 <label>Upload photos
-                    <input type="file" onChange={handleFile}/>
+                    <input type="file" onChange={handleFile} required/>
                 </label>
 
                 <button type="submit" className="post-button">Post for sale by owner</button>

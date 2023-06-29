@@ -39,15 +39,16 @@ export default function ProfileButton({user}) {
         {showMenu && (
         <ul className="profile-dropdown">
             
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-
-          {/* <button onClick={()=><MyListingsPage/>} >My Listings</button> */}
-          <Link to={`/mylistings/${user.id}`}>My Listings</Link>
-
           <li>
+            {user.email}
+          </li>
+          <li>
+            <Link to={`/mylistings/${user.id}`}>My Listings</Link>
+          </li>
+          <li id="logout-button">
             <button onClick={logout}>Log Out</button>
           </li>
+
         </ul>
       )}
         </>
