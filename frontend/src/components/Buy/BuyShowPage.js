@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchListing, saveListing, unsaveListing } from "../../store/listing";
 import { useEffect } from "react";
 import Geocode from "../Map/Geocode";
+import './ShowPage.css'
 
 export default function BuyShowPage() {
     const dispatch = useDispatch();
@@ -73,22 +74,69 @@ export default function BuyShowPage() {
 
     // console.log(listing.saved);
 
+    const priceSqft = (price, sqft) => {
+        return `$${Math.floor(price/sqft)} price/sqft`
+    }
+
     return (
-        <>
+        <div className="show-page">
+            <div className="show-page-content">
             {/* <button onClick={handleClick}>Save</button> */}
-            <h1 key={listing.id}>${priceFormatter(listing.price)} {listing.streetAddress}.</h1>
-            <h2>{listing.city}, {listing.state} {listing.zipCode}</h2>
-            <h3>{listing.bed} bds | {listing.bath} ba | {listing.sqft} sqft. </h3>
-            <h3>{categoryFormatter(listing.category)}</h3>
 
-            <h4>{listing.description}</h4>
-            <h4>Year built: {listing.yearBuilt}</h4>
+            <div className="show-page-info">
+                <ul>
+                <li key={listing.id} id="show-price">
+                    ${priceFormatter(listing.price)} 
+                </li>
+                <br></br>
+                <li id="show-bed-bath">
+                    {listing.bed} bds | {listing.bath} ba | {listing.sqft} sqft 
+                </li>
+                <br></br>
+                <li id="show-page-address">
+                    {listing.streetAddress}, {listing.city}, {listing.state} {listing.zipCode}
+                </li>
+                <br></br>
+                <li>
+                    <ul id="facts-list">
+                    <li>
+                    {categoryFormatter(listing.category)}
+                    </li>
+                    <li>
+                    Built in {listing.yearBuilt}
+                    </li>
+                    <li>
+                    {listing.lotSize} Sqft lot
+                    </li>
+                    <li>
+                    {priceSqft(listing.price, listing.sqft)}
+                    </li>
+                    </ul>
+                </li>
+                <br></br>
+                <li id="show-page-description">
+                    <h4>
+                        Overview 
+                    </h4>
+                    <br></br>
+                    <p>
+                        {listing.description}
+                    </p>
+                </li>
 
-            {/* <h4>{listing.imageUrl.map(image => <img src={image} alt=""/>)}</h4> */}
-            <h4>{img}</h4>
+                </ul>
+            <div className="show-page-map">
+                <Geocode location={location}/>
+            </div>
+            </div>
+
+            <div className="show-page-imgs">
+                {img}
+            </div>
             
-            <Geocode location={location}/>
-        </>
+
+            </div>
+        </div>
     )
 }
 

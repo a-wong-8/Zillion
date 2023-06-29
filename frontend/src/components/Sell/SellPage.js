@@ -127,7 +127,7 @@ export default function SellPage() {
                 </label>
 
                 <label>Upload photos
-                    <input type="file" onChange={handleFile}/>
+                    <input type="file" onChange={handleFile} required/>
                 </label>
 
                 <button type="submit" className="post-button">Post for sale by owner</button>

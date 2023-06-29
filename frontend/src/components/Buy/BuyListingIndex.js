@@ -46,7 +46,7 @@ export default function BuyListingIndex({listing}) {
 
             <div className="display-item">
 
-            <ul>
+            <ul id="list-container">
 
                 <li>
                     <div>
@@ -69,7 +69,11 @@ export default function BuyListingIndex({listing}) {
                 </li>
 
                 <li id="street">
-                    {listing.streetAddress}, {listing.city}, {listing.state} {listing.zipCode}
+                    {listing.streetAddress}  
+                </li>
+
+                <li id="city">
+                    {listing.city}, {listing.state} {listing.zipCode}
                 </li>
                 
                 <br></br>

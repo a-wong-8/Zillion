@@ -56,7 +56,9 @@ export default function HomePage () {
         </div>
         
         <h1 className="intro">Homes for you</h1>
-        <BuyListing />
+        <div className='home-page-listings'>
+            <BuyListing />
+        </div>
         </>
     )
 };
