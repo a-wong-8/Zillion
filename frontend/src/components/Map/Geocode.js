@@ -5,7 +5,7 @@ const Geocode = ({location}) => {
   const [geolocation, setGeolocation] = useState(null)
   const geocoder = new window.google.maps.Geocoder();
 
-    let address;
+  let address;
 
   useEffect(() => {
     address = location;
