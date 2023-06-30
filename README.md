@@ -1,5 +1,4 @@
 ![Alt Text](readme/readmelogo.png)
-
 Zillion is a clone of Zillow, a real estate website.
 
 ## Technologies
@@ -20,5 +19,16 @@ Listings can be easily located on the embedded Google map on the "Buy" page with
 ![Alt Text](readme/map.png)
 
 ### Listing Search
-Users can search listings by address, city, or zip code. The search results appears in a drop down menu that allows the user to select the link to the listing.
+Users can search listings by address, city, or zip code, from the search bar of the home page. The search results appears in a drop down menu that allows the user to select the link to the listing.
 ![Alt Text](readme/search.png)
+```
+  useEffect(()=> {
+        newListing = listings.filter(listing => 
+            (listing.streetAddress.toLowerCase().includes(query.toLowerCase())) || 
+            listing.city.toLowerCase().includes(query.toLowerCase()) || 
+            listing.zipCode.toString().includes(query));
+        setSearchResults(newListing);
+    },[query])
+
+    const showDropdown = query.length > 0;
+```
