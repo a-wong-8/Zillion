@@ -46,8 +46,12 @@ export default function MyListingsPage() {
 
                     <li>
                         <Link to={`/listings/${listing.id}`}>
-                        {listing.streetAddress}, {listing.city}, {listing.state}
+                        {listing.streetAddress}, 
                         </Link>
+                    </li>
+
+                    <li>
+                        {listing.city}, {listing.state}
                     </li>
                     
                     <NavLink to={`listings/${listing.id}/edit`} id="edit-button">
