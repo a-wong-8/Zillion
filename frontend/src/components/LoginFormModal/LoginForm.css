@@ -44,7 +44,6 @@ h1 {
 a {
     color: inherit;
     font-weight: 100;
-    /* font-family: sans-serif; */
     text-decoration: none;
   }  
 
@@ -92,28 +91,29 @@ a:hover {
     border: 1px solid rgb(0, 112, 248);
 }
 
-.button {
-    display: block;
-    justify-content: center;
-    width: 370px;
-    height: 45px;
-    border-radius: 3px;
-    background-color: rgb(0, 112, 248);
-    color: white;
-    border: none;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 2.6;
-    font-size: 15px;
-}
-
 .button:hover {
     background-color: rgb(3,72,151);
     cursor: pointer;
 }
 
 .button-container {
-    display: flex;
-    padding-top: 20px;
+    padding-top: 10px;
+}
+
+.signin-button {
+    color: white;
+    background-color: rgb(44, 104, 246);
+    border: none;
+    border-radius: 4px;
+    height: 45px;
+    width: 375px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.signin-button:hover {
+    background-color: rgb(3,72,151);
 }
 
 #login-form {
@@ -127,7 +127,6 @@ a:hover {
 label {
     display: block;
 }
-
 
 .errors > li {
     list-style: none;
@@ -152,7 +151,6 @@ input[type=text]:focus, input[type=password]:focus {
   }
 
 .guest {
-    padding-top: 12px;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
 }

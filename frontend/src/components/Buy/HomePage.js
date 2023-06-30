@@ -1,17 +1,28 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import BuyListing from './BuyListing'
+// import BuyListing from './BuyListing'
 import banner from './banner3.png'
 import './BuyPage.css'
+import { fetchListings } from '../../store/listing';
+import BuyListingIndex from './BuyListingIndex';
+import Footer from '../Navigation/Footer';
 
 export default function HomePage () {
     const listings = useSelector((state)=> Object.values(state.listings))
     const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
+    const dispatch = useDispatch(); //
     
     // const slogan = ['This. The. House.', 'Find it. Buy it. Repeat it.', 'Home Is Where Your Story Begins.'];
     // let item = slogan[Math.floor(Math.random() * slogan.length)];
+
+    useEffect(()=> {
+        dispatch(fetchListings())
+    },[dispatch])
+
+    let dupList = [...listings];
+    dupList = dupList.slice(0,10);
     
     let newListing;
 
@@ -57,9 +68,16 @@ export default function HomePage () {
         </div>
         
         <h1 className="intro">Homes for you</h1>
+
+        <div className='main'>
+
         <div className='home-page-listings'>
-            <BuyListing />
+            {/* <BuyListing /> */}
+            {dupList.map(listing => <BuyListingIndex listing={listing}/>)}
+
         </div>
+        </div>
+        <Footer/>
         </>
     )
 };

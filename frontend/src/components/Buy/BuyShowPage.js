@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchListing, saveListing, unsaveListing } from "../../store/listing";
+import { fetchListing } from "../../store/listing";
 import { useEffect } from "react";
 import Geocode from "../Map/Geocode";
 import './ShowPage.css'

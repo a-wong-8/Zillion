@@ -83,7 +83,7 @@ const LoginForm = () => {
                 <br></br>
 
                 <div className="button-container">
-                    <button type="submit" className="button">Sign in</button>
+                    <button type="submit" className="signin-button">Sign in</button>
                 </div>
 
                 <a className="guest" onClick={()=>guest()}>Sign in as guest</a>
@@ -138,7 +138,7 @@ const LoginForm = () => {
               {errors.map((error) => <li key={error}>{error}</li>)}
             </ul>
 
-            <button type="submit" className="button">Submit</button>
+            <button type="submit" className="signin-button">Submit</button>
             <p className="terms">
               By submitting, I accept Zillion's term of use.
             </p>

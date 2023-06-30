@@ -35,14 +35,14 @@ export default function BuyPage () {
     }
 
     let dupList = [...listings];
-    const randomList = getRandomListings(dupList, 6);
+    const randomList = getRandomListings(dupList, 8);
 
     return (
         <div className="buy-page-container">
             
             <div className="buy-page-listings">
                 <ul>
-                    {dupList.map(listing => <BuyListingIndex listing={listing}/>)}
+                    {randomList.map(listing => <BuyListingIndex listing={listing}/>)}
                 </ul>
             </div>
 

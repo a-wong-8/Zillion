@@ -48,10 +48,6 @@ button[type="file"] {
     background-color: rgb(44, 104, 246);
 }
 
-/* .photo-input {
-    display: none;
-} */
-
 .photo-button {
     cursor: pointer;
     background-color: rgb(44, 104, 246);
@@ -106,7 +102,7 @@ select {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-button[type="submit"] {
+.post-button button[type="submit"] {
     color: white;
     background-color: rgb(44, 104, 246);
     border: none;

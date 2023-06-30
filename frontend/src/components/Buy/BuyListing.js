@@ -11,10 +11,15 @@ export default function BuyListing() {
         dispatch(fetchListings())
     },[dispatch])
 
+    let dupList = [...listings];
+    dupList = dupList.slice(0,10);
+
     return (
-        <ul>
-            {listings.map(listing => <BuyListingIndex listing={listing}/>)}
-        </ul>
+        <>
+        {/* // <ul>  */}
+            {dupList.map(listing => <BuyListingIndex listing={listing}/>)}
+        {/* // </ul> */}
+        </>
     )
 } 
 
