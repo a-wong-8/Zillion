@@ -56,7 +56,8 @@ export default function BuyPage () {
                     key={listing.id} 
                     location={`${listing.streetAddress}, ${listing.city}`} 
                     price={formatNumber(listing.price)} 
-                    id={listing.id}/>
+                    id={listing.id}
+                    />
                 )}
             </GoogleMap>
             </div>

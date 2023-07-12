@@ -134,7 +134,6 @@ export default function BuyShowPage() {
                 {img}
             </div>
             
-
             </div>
         </div>
     )
