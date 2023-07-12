@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-// import BuyListing from './BuyListing'
 import banner from './banner3.png'
-import './BuyPage.css'
 import { fetchListings } from '../../store/listing';
 import BuyListingIndex from './BuyListingIndex';
 import Footer from '../Navigation/Footer';
+import './BuyPage.css'
 
 export default function HomePage () {
     const listings = useSelector((state)=> Object.values(state.listings))
@@ -44,7 +43,7 @@ export default function HomePage () {
             <div className='search-bar-container'>
                 <div className="slogan">
                     {/* Find it. Buy it. Repeat. */}
-                    Home Is Where Your Story Begins.
+                    Home is where your story begins.
                      {/* { item } */}
                 </div>
 
