@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Marker, OverlayView } from '@react-google-maps/api';
+import { Marker } from '@react-google-maps/api';
 import mark from './marker2.png'
-import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function GeocoderHome({location, price, id}) {
   const [geolocation, setGeolocation] = useState(null)
