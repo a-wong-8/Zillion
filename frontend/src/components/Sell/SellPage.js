@@ -12,7 +12,7 @@ export default function SellPage() {
             window.alert('Please sign in or create a new account to post a listing.')
             window.location.href = `/`;
         }
-    }, [])
+    }, [session])
   
     const[ streetAddress, setStreetAddress] = useState('');
     const[ city, setCity] = useState('');
@@ -79,9 +79,9 @@ export default function SellPage() {
                         Photos
                     </h3>
                     <input id="photo-input" className="photo-input" type="file" onChange={handleFile} required/>
-                    <label for="photo-input" className="photo-button">
+                    {/* <label for="photo-input" className="photo-button">
                         Add New Photo
-                    </label>
+                    </label> */}
                 </label>
                 
                 <div id="home-facts-div">

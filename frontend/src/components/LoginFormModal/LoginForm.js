@@ -14,7 +14,6 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrors([]);
 
         if (signIn) {
             
@@ -25,24 +24,28 @@ const LoginForm = () => {
             
             try {
               data = await res.clone().json();
-            } catch {
-              data = await res.text(); 
+            } catch(error) {
+              window.alert('Invalid credentials.')
+              // data = await res.text(); 
             }
                 if (data?.errors) setErrors(data.errors);
                 else if (data) setErrors([data]);
                 else setErrors([res.statusText]);
+
           });
         } else {
             if (password) {
                 setErrors([]);
                 return dispatch(sessionActions.signup({ email, password }))
-    
-                  .catch(async (res) => {
+                
+                .catch(async (res) => {
+                    console.log(errors);
                   let data;
                   try {
                     data = await res.clone().json();
                   } catch {
-                    data = await res.text();
+                    window.alert('Invalid email or password.')
+                    // data = await res.text();
                   }
                   if (data?.errors) setErrors(data.errors);
                   else if (data) setErrors([data]);

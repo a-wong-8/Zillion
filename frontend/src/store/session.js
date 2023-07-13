@@ -31,11 +31,15 @@ export const login = ({email, password}) => async (dispatch) => {
       body: JSON.stringify({ email, password })
     });
 
-    const data = await response.json();
-    storeCurrentUser(data.user);
-    dispatch(setCurrentUser(data.user));
-
-    return response;
+    if (response.ok) {
+      const data = await response.json();
+      storeCurrentUser(data.user);
+      dispatch(setCurrentUser(data.user));
+      return response;
+    } else {
+      let error = await response.text()
+      throw new Error(JSON.parse(error))
+    }
   };
 
   export const restoreSession = () => async (dispatch) => {
@@ -58,11 +62,16 @@ export const login = ({email, password}) => async (dispatch) => {
         password
       })
     });
-    
-    const data = await response.json();
-    storeCurrentUser(data.user);
-    dispatch(setCurrentUser(data.user));
-    return response;
+
+    if (response.ok) { 
+      const data = await response.json();
+      storeCurrentUser(data.user);
+      dispatch(setCurrentUser(data.user));
+      return response;
+    } else {
+      let error = await response.text()
+      throw new Error(JSON.parse(error))
+    }
   };
 
 export const logout = () => async (dispatch) => {

@@ -6,14 +6,18 @@
 .my-listings-display-container {
     display: inline-block;
     border-radius: 5px;
-    margin: 8px;
+    /* margin: 8px; */
+}
+
+.my-listings-main-container {
+    /* width: 800px; */
     display: flex;
     justify-content: center;
 }
 
 #my-listings-list-container {
-    height: 260px;
-    width: 280px;
+    height: 275px;
+    width: auto;
     box-shadow: 2px 2px 2px #ccc;
     border-radius: 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
