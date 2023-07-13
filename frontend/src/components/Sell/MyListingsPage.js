@@ -17,7 +17,7 @@ export default function MyListingsPage() {
             window.alert('Please sign in to view your listings.')
             window.location.href = `/`;
         }
-    },[dispatch, userId])
+    },[dispatch, userId, session])
 
     const userListings = allListings.filter((listing) => String(listing.userId) === userId );
     
