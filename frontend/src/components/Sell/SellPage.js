@@ -12,7 +12,7 @@ export default function SellPage() {
             window.alert('Please sign in or create a new account to post a listing.')
             window.location.href = `/`;
         }
-    }, [])
+    }, [session])
   
     const[ streetAddress, setStreetAddress] = useState('');
     const[ city, setCity] = useState('');
@@ -27,6 +27,7 @@ export default function SellPage() {
     const[ price, setPrice] = useState('');
     const[ yearBuilt, setYearBuilt] = useState('');
     const[ imageFile, setImageFile] = useState (null);
+    // const [imageUrls, setImageUrls] = useState ([]);
 
     const dispatch = useDispatch();
 
@@ -46,21 +47,45 @@ export default function SellPage() {
         formData.append('listing[description]', description);
         formData.append('listing[price]', price);
         formData.append('listing[yearBuilt]', yearBuilt);
-
-        if (imageFile) formData.append('listing[images]', imageFile);
+        // if (imageFile) formData.append('listing[images]', imageFile);
         
+        if (imageFile) {
+                if (imageFile.length !== 0) {  
+                    imageFile.forEach(image => {
+                    formData.append('listing[images][]', image);
+                    })
+                }
+                // if (response.ok) {
+                //     setImageFile([]);
+                //     setImageUrls([]);
+                // }
+          }       
         try  {
             const listing = await (dispatch(createListing(formData)))
             window.alert('Listing was successfully posted.')
             window.location.href = `/`;
         } catch (error) {
-            window.alert(error)
+            window.alert(error);
         }
     }
-    
-    const handleFile = ({ currentTarget }) => {
-        const file = currentTarget.files[0];
-        setImageFile(file);
+
+    const handleFiles = ({ currentTarget }) => {
+        const files = Array.from(currentTarget.files);
+        setImageFile(files);
+        // if (files.length !== 0) {
+        //   let filesLoaded = 0;
+        //   const urls = [];
+        //   Array.from(files).forEach((file, index) => {
+        //     const fileReader = new FileReader();
+        //     fileReader.readAsDataURL(file);
+        //     fileReader.onload = () => {
+        //       urls[index] = fileReader.result;
+        //       if (++filesLoaded === files.length)
+        //         setImageUrls(urls);
+        //     }
+        // });
+        // }
+        // else setImageUrls([]);
       }
 
     return (
@@ -78,10 +103,11 @@ export default function SellPage() {
                     <h3 id="photos-h3">
                         Photos
                     </h3>
-                    <input id="photo-input" className="photo-input" type="file" onChange={handleFile} required/>
-                    <label for="photo-input" className="photo-button">
+                    <input id="photo-input" className="photo-input" type="file" onChange={handleFiles} required multiple accept=".jpg, .jpeg, .png"/>
+
+                    {/* <label for="photo-input" className="photo-button">
                         Add New Photo
-                    </label>
+                    </label> */}
                 </label>
                 
                 <div id="home-facts-div">

@@ -68,3 +68,31 @@ footer {
     font-size: 13px;
     /* z-index: 1;  */
 }
+
+#logout-button button {
+    width: 120px;
+    border: none;
+    color: white;
+    background-color: rgb(0, 112, 248);
+    border-radius: 2px;
+    height: 20px;
+}
+
+#logout-button button:hover {
+    cursor: pointer;
+    background-color: rgb(3,72,151);
+}
+
+.profile-button {
+    border-radius: 8px;
+    border: none;
+    width: 30px;
+    height: 28px;
+    color: white;
+    background-color: rgb(0, 112, 248);
+}
+
+.profile-button:hover {
+    cursor: pointer;
+    background-color: rgb(3,72,151);
+}

@@ -17,7 +17,7 @@ export default function MyListingsPage() {
             window.alert('Please sign in to view your listings.')
             window.location.href = `/`;
         }
-    },[dispatch])
+    },[dispatch, userId])
 
     const userListings = allListings.filter((listing) => String(listing.userId) === userId );
     
@@ -30,6 +30,8 @@ export default function MyListingsPage() {
         <h1 id="my-listings-h1">
             My Listings
         </h1>
+
+        <div className="my-listings-main-container">
 
         <div className="my-listings-display-container">
 
@@ -69,6 +71,8 @@ export default function MyListingsPage() {
 
             {/* <UserSaves userId={userId}/> */}
         </div>
+        </div>
+
         </>
     )
 }
