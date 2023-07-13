@@ -163,6 +163,20 @@ export default function listingsReducer(state={}, action) {
             const newState = {...state}    
             delete newState[action.listingId]
             return newState;
+        // case RECEIVE_SAVES:
+        //     return action.saves;
+        // case SAVE_LISTING:
+        //     const { listingId, userId } = action; 
+        //     return {...state, [listingId]: {...state[listingId], saved: true, listing_id: listingId, user_id: userId}};
+        // case UNSAVE_LISTING:
+        //     return {...state, [action.listingId]: {...state[action.listingId], saved: false}};
+        default:
+            return state;
+    }
+}
+
+export function savesReducer(state={}, action) {
+    switch (action.type) {
         case RECEIVE_SAVES:
             return action.saves;
         case SAVE_LISTING:
