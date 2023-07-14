@@ -1,0 +1,22 @@
+.saves-item {
+    width: 250px;
+    border-radius: 5px;
+    list-style: none;
+    display: inline-block;
+    box-shadow: 2px 2px 6px #aaa;
+    margin: 10px;
+}
+
+.saves-item:hover {
+    box-shadow: 2px 2px 6px black;
+}
+
+.saves-container {
+    display: flex;
+    justify-content: center;
+}
+
+.my-saves-h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+}

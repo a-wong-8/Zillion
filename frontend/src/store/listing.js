@@ -26,16 +26,15 @@ const removeListing = (listingId) => ({
 })
 
 // for saves ----------------------------------------------------
-const receiveSaveListing = (listingId, userId) => ({
+const receiveSaveListing = (save) => ({
     type: SAVE_LISTING,
-    listingId,
-    userId
+    save
 })
 
-const removeSaveListing = (listingId, userId) => ({
+const removeSaveListing = (listingId) => ({
     type: UNSAVE_LISTING,
-    listingId,
-    userId
+    listingId
+    // userId
 })
 
 const receiveSaves = (saves) => ({
@@ -108,7 +107,8 @@ export const fetchSaves = () => async (dispatch) => {
 
     if (response.ok) {
       const saves = await response.json();
-      dispatch(receiveListings(saves));
+    //   dispatch(receiveListings(saves));
+      dispatch(receiveSaves(saves));
     }
 };
 
@@ -133,22 +133,22 @@ export const saveListing = (listingId, userId) => async(dispatch) => {
 }
 
 export const unsaveListing = (listingId, userId) => async(dispatch) => {
-    const response = await csrfFetch(`/api/saves/62`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            save: {
-                listing_id: listingId,
-                user_id: userId
-            }
-        })
+    const response = await csrfFetch(`/api/saves/${listingId}`, {
+        method: "DELETE"
     });
+        // headers: {
+        //     "Content-Type": "application/json"
+        // }
+        // body: JSON.stringify({
+        //     save: {
+        //         listing_id: listingId,
+        //         user_id: userId
+        //     }
+        // })
 
     if (response.ok) {
-        const listing = await response.json();
-        dispatch(removeSaveListing(listing))
+        // const save = await response.json();
+        dispatch(removeSaveListing(listingId))
     }
 }
 
@@ -163,13 +163,6 @@ export default function listingsReducer(state={}, action) {
             const newState = {...state}    
             delete newState[action.listingId]
             return newState;
-        // case RECEIVE_SAVES:
-        //     return action.saves;
-        // case SAVE_LISTING:
-        //     const { listingId, userId } = action; 
-        //     return {...state, [listingId]: {...state[listingId], saved: true, listing_id: listingId, user_id: userId}};
-        // case UNSAVE_LISTING:
-        //     return {...state, [action.listingId]: {...state[action.listingId], saved: false}};
         default:
             return state;
     }
@@ -180,10 +173,13 @@ export function savesReducer(state={}, action) {
         case RECEIVE_SAVES:
             return action.saves;
         case SAVE_LISTING:
-            const { listingId, userId } = action; 
-            return {...state, [listingId]: {...state[listingId], saved: true, listing_id: listingId, user_id: userId}};
+            // const { listingId, userId } = action; 
+            // return {...state, [listingId]: {...state[listingId], saved: true, listing_id: listingId, user_id: userId}};
+            return {...state, [action.save.listingId]:{ saved: true, listing_id: action.save.listingId, user_id: action.save.userId }}
         case UNSAVE_LISTING:
-            return {...state, [action.listingId]: {...state[action.listingId], saved: false}};
+            const newState = {...state};
+            delete newState[action.listingId];
+            return newState;
         default:
             return state;
     }

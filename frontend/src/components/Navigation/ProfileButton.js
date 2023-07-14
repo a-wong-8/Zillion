@@ -44,6 +44,10 @@ export default function ProfileButton({user}) {
             </li>
 
             <li>
+              <Link to={`/mysaves/${user.id}`}>My Saves</Link>
+            </li>
+
+            <li>
               <Link to={`/mylistings/${user.id}`}>My Listings</Link>
             </li>
             
