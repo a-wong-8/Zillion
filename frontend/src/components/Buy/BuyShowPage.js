@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchListing } from "../../store/listing";
-import { useEffect } from "react";
+import { fetchListing, fetchSaves, saveListing, unsaveListing } from "../../store/listing";
+import { useEffect, useState } from "react";
 import Geocode from "../Map/Geocode";
 import './ShowPage.css'
 
@@ -10,11 +10,20 @@ export default function BuyShowPage() {
     const {listingId} = useParams();
     let listing = useSelector((state)=>state.listings[listingId])
     const session = useSelector((state)=> Object.values(state.session))
-    
+    const saves = useSelector((state)=> Object.values(state.saves))
+
+    let saved = false;
+
     useEffect(()=>{
         dispatch(fetchListing(listingId))
+        dispatch(fetchSaves())
     },[dispatch, listingId])
     
+    saves.map(listing=>{
+        if (listing.id === parseInt(listingId)) saved = true;
+    }) 
+    
+    console.log(saved);
     
     if (listing === undefined) return null;
     const location = `${listing.streetAddress} ${listing.city}`;
@@ -64,15 +73,13 @@ export default function BuyShowPage() {
         }
     }
 
-    // const handleClick = () => {
-    //     if (listing.saved) {
-    //         dispatch(unsaveListing(listingId, session[0].id))
-    //     } else {
-    //         dispatch(saveListing(listingId, session[0].id))
-    //     }
-    // }
-
-    // console.log(listing.saved);
+    const handleClick = () => {
+        if (!saved) {
+            dispatch(saveListing(listingId, session[0].id))
+        } else {
+            dispatch(unsaveListing(listingId, session[0].id))
+        }
+    }
 
     const priceSqft = (price, sqft) => {
         return `$${Math.floor(price/sqft)} price/sqft`
@@ -81,9 +88,11 @@ export default function BuyShowPage() {
     return (
         <div className="show-page">
             <div className="show-page-content">
-            {/* <button onClick={handleClick}>Save</button> */}
 
             <div className="show-page-info">
+            <button onClick={handleClick} className="save-button">
+                Save 🤍
+            </button>
                 <ul>
                 <li key={listing.id} id="show-price">
                     ${priceFormatter(listing.price)} 

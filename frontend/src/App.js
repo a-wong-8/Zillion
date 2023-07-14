@@ -8,7 +8,7 @@ import MyListingsPage from "./components/Sell/MyListingsPage";
 import EditPage from "./components/Sell/EditPage";
 import BuyShowPage from "./components/Buy/BuyShowPage";
 import BuyPage from "./components/Buy/BuyPage";
-import Footer from "./components/Navigation/Footer";
+import MySaves from "./components/Sell/Saves";
 
 function App() {
 
@@ -27,11 +27,12 @@ function App() {
 
         <Route exact path="/mylistings/:userId" component={MyListingsPage}/>
 
+        <Route exact path="/mysaves/:userId" component={MySaves}/>
+
         <Route exact path="/listings/:listingId" component={BuyShowPage}/>
 
       </Switch>
 
-      {/* <Footer/> */}
     </>
   );
 }

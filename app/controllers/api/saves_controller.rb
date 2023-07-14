@@ -21,12 +21,15 @@ class Api::SavesController < ApplicationController
     end
 
     def destroy
-        listingId = params[:listing_id]
-        userId = params[:user_id]
+        # listingId = params[:save][:listing_id]
+        # userId = params[:save][:user_id]
+        listingId = params[:id]
+        userId = current_user.id
 
         @save = Save.find_by(listing_id: listingId, user_id: userId)
         @save.destroy
-        head :no_content
+        # head :no_content
+        render json: ['successfully unsaved']
     end
 
     def save_params
