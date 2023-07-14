@@ -13,9 +13,9 @@ export default function MySaves () {
         dispatch(fetchSaves());
     },[])
 
-    const handleClick = (listing) => {
-            dispatch(unsaveListing(listing.id, session[0].id))
-    }
+    // const handleClick = (listing) => {
+    //         dispatch(unsaveListing(listing.id, session[0].id))
+    // }
 
     return (
         <>
