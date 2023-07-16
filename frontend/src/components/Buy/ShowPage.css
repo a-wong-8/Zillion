@@ -87,7 +87,16 @@
     width: auto;
 }
 
-/* .save-button {
+.save-button {
+    background-color: rgb(0, 112, 248);
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+}
 
-} */
+.save-button:hover {
+    cursor: pointer;
+}
 

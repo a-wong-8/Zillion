@@ -13,9 +13,22 @@ export default function MySaves () {
         dispatch(fetchSaves());
     },[])
 
-    // const handleClick = (listing) => {
-    //         dispatch(unsaveListing(listing.id, session[0].id))
-    // }
+    const handleClick = (listing) => {
+            dispatch(unsaveListing(listing.id, session[0].id))
+    }
+
+    const priceFormatter = (price) => {
+        price = price.toString();
+        let newPrice = '';
+
+        for (let i = 0; i < price.length; i++) {
+            newPrice += price[i];
+            if ((price.length - i - 1) % 3 === 0 && i !== price.length - 1) {
+              newPrice += ',';
+            }
+          }
+        return newPrice;
+    }
 
     return (
         <>
@@ -23,6 +36,7 @@ export default function MySaves () {
             My Saves
         </h1>
 
+        <div className="saves-main-container">
         <div className="saves-container">
 
         {userSaves.map(listing=>(
@@ -31,14 +45,14 @@ export default function MySaves () {
             <li>
                 <div>
                 {listing.imageUrl && listing.imageUrl.length > 0 && (
-                    <img src={listing.imageUrl[0]} className="first-img" alt="First Image" />
+                    <img src={listing.imageUrl[0]} className="saved-first-img" alt="First Image" />
                 )}
                 </div>
             </li>
 
 
             <li>
-                {listing.price}
+                ${priceFormatter(listing.price)}
             </li>
             
 
@@ -50,13 +64,13 @@ export default function MySaves () {
             
             </Link>
 
-            {/* <button onClick={handleClick(listing)} className="save-button">
-                Unsave 🤍
-            </button> */}
+            <button onClick={()=>handleClick(listing)} className="my-saves-button">
+                Unsave
+            </button>
         </div>
         
         ))}
-
+        </div>
         </div>
         </>
     )
