@@ -11,21 +11,21 @@ export default function BuyShowPage() {
     let listing = useSelector((state)=>state.listings[listingId])
     const session = useSelector((state)=> Object.values(state.session))
     const saves = useSelector((state)=> Object.values(state.saves))
+    const [savedListing, setSavedListing] = useState('')
 
     let saved = false;
 
-    useEffect(()=>{
-        dispatch(fetchListing(listingId))
-        dispatch(fetchSaves())
-    },[dispatch, listingId])
-    
     saves.map(listing=>{
         if (listing.id === parseInt(listingId)) saved = true;
     }) 
-    
-    console.log(saved);
+
+    useEffect(()=>{
+        dispatch(fetchListing(listingId));
+        dispatch(fetchSaves());
+    },[dispatch, listingId, savedListing])
     
     if (listing === undefined) return null;
+
     const location = `${listing.streetAddress} ${listing.city}`;
 
     let img;
@@ -42,7 +42,6 @@ export default function BuyShowPage() {
 
         for (let i = 0; i < price.length; i++) {
             newPrice += price[i];
-            
             if ((price.length - i - 1) % 3 === 0 && i !== price.length - 1) {
               newPrice += ',';
             }
@@ -74,9 +73,12 @@ export default function BuyShowPage() {
     }
 
     const handleClick = () => {
-        if (!saved) {
-            dispatch(saveListing(listingId, session[0].id))
-        } else {
+        if (session[0] === null) {
+            window.alert('Please login or make an account to save a listing.')
+        } else if (!saved) {
+            dispatch(saveListing(listingId, session[0].id));
+            setSavedListing(true)
+        } else if (saved) {
             dispatch(unsaveListing(listingId, session[0].id))
         }
     }
@@ -91,7 +93,7 @@ export default function BuyShowPage() {
 
             <div className="show-page-info">
             <button onClick={handleClick} className="save-button">
-                Save 🤍
+                {saved? 'Unsave' : 'Save'}
             </button>
                 <ul>
                 <li key={listing.id} id="show-price">
