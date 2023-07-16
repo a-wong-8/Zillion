@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min"
-import { fetchListing, updateListing } from "../../store/listing";
-import { useEffect, useState } from "react";
+import { fetchListing } from "../../store/listing";
+import { useEffect } from "react";
 import EditPageForm from "./EditPageForm";
 
 export default function EditPage() {
     const dispatch = useDispatch();
     const {listingId} = useParams();
-    let listing = useSelector((state)=>state.listings[listingId])
+    let listing = useSelector((state)=>state.listings[listingId]);
 
     useEffect(()=>{
         dispatch(fetchListing(listingId))

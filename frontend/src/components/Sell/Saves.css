@@ -1,6 +1,6 @@
 .saves-item {
     width: 240px;
-    height: 260px;
+    height: 280px;
     border-radius: 5px;
     list-style: none;
     display: inline-block;
@@ -8,6 +8,7 @@
     margin: 10px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
+    text-align: center;
 }
 
 .saves-item:hover {
@@ -42,10 +43,21 @@
     border-radius: 5px;
     color: white;
     margin-top: 4px;
-    margin-left: 28%;
+    /* margin-left: 28%; */
     width: 100px;
 }
 
 .my-saves-button:hover {
     cursor: pointer;
+}
+
+#saves-price {
+    font-size: 18px;
+    font-weight: 600;
+    padding-bottom: 2px;
+}
+
+#saves-bed-bath {
+    font-size: 15px;
+    padding-bottom: 2px;
 }

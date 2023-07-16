@@ -3,27 +3,30 @@
     padding: 10px;
 }
 
+.my-listings-main-container {
+    display: flex;
+    justify-content: center;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .my-listings-display-container {
     display: inline-block;
     border-radius: 5px;
-    /* margin: 8px; */
-}
-
-.my-listings-main-container {
-    /* width: 800px; */
-    display: flex;
-    justify-content: center;
 }
 
 #my-listings-list-container {
     height: 275px;
-    width: auto;
+    width: 250px;
     box-shadow: 2px 2px 2px #ccc;
     border-radius: 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 20px;
+    margin: 15px;
     border: 1px solid #eee;
     text-align: center;
+    display: inline-block;
+    list-style: none;
 }
 
 #edit-button button{
@@ -54,4 +57,10 @@
 #delete-button:hover {
     background-color: rgb(3,72,151);
     cursor: pointer;
+}
+
+.my-listing-first-img {
+    height: 180px;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
 }

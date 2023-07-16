@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min"
 import { fetchListing, updateListing } from "../../store/listing";
 import { useEffect, useState } from "react";
+import './EditPage.css'
 
 export default function EditPageForm() {
     
@@ -55,6 +56,22 @@ export default function EditPageForm() {
         window.alert('Listing has been successfully edited.')
     }
 
+    let img;
+
+    if (listing.imageUrl !== null) {
+        img = listing.imageUrl.map((image, index) => (
+            <li className="edit-photo-li">
+                <img key={index} src={image} alt="" id={`img${index}`}/>
+                <div className="edit-x" 
+                onClick={()=>{
+                    // listing.imageUrl = listing.imageUrl.splice(index, 1)
+                }}>
+                    Delete
+                </div>
+            </li>
+          ));
+    }
+
     return (
     <div className="sell-form">
             <h1 id="for-sale-by-owner">Edit Listing</h1>
@@ -65,6 +82,11 @@ export default function EditPageForm() {
                 <br></br>
                     <input value={price} type="integer" placeholder="$" onChange={(e)=>setPrice(e.target.value)} required/>
                 </label>
+
+                <div id="edit-photos">
+                    <h4>Photos</h4>
+                    {img}
+                </div>
                 
                 <div id="home-facts-div">
                     Home facts
