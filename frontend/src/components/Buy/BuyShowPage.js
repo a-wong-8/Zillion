@@ -110,18 +110,10 @@ export default function BuyShowPage() {
                 <br></br>
                 <li>
                     <ul id="facts-list">
-                    <li>
-                    {categoryFormatter(listing.category)}
-                    </li>
-                    <li>
-                    Built in {listing.yearBuilt}
-                    </li>
-                    <li>
-                    {listing.lotSize} Sqft lot
-                    </li>
-                    <li>
-                    {priceSqft(listing.price, listing.sqft)}
-                    </li>
+                        <li>{categoryFormatter(listing.category)}</li>
+                        <li>Built in {listing.yearBuilt}</li>
+                        <li>{listing.lotSize} Sqft lot</li>
+                        <li>{priceSqft(listing.price, listing.sqft)}</li>
                     </ul>
                 </li>
                 <br></br>

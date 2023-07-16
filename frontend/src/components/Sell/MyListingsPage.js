@@ -32,29 +32,22 @@ export default function MyListingsPage() {
         </h1>
 
         <div className="my-listings-main-container">
-
         <div className="my-listings-display-container">
 
             {userListings.map((listing)=>(
-                <ul key={listing.id} id="my-listings-list-container">
+                <div id="my-listings-list-container">
 
                     <li>
-                        <div>
                         {listing.imageUrl && listing.imageUrl.length > 0 && (
-                            <img src={listing.imageUrl[0]} className="first-img" alt="First Image" />
+                            <img src={listing.imageUrl[0]} className="my-listing-first-img" 
+                            alt="First Image"/>
                         )}
-                        </div>
                     </li>
 
-                    <li>
-                        <Link to={`/listings/${listing.id}`}>
-                        {listing.streetAddress}, 
-                        </Link>
-                    </li>
-
-                    <li>
-                        {listing.city}, {listing.state}
-                    </li>
+                    <Link to={`/listings/${listing.id}`}>
+                        <li>{listing.streetAddress},</li>
+                        <li>{listing.city}, {listing.state}</li>
+                    </Link>
                     
                     <NavLink to={`listings/${listing.id}/edit`} id="edit-button">
                         <button>
@@ -62,14 +55,15 @@ export default function MyListingsPage() {
                         </button>
                     </NavLink>
                     <br></br>
-                    <button id="delete-button" onClick={()=>handleDelete(listing.id)}>
+
+                    <button id="delete-button" 
+                    onClick={()=>handleDelete(listing.id)}>
                         Delete
                     </button>
 
-                </ul>
+                </div>
             ))}
 
-            {/* <UserSaves userId={userId}/> */}
         </div>
         </div>
 

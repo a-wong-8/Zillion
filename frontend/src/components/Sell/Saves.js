@@ -51,10 +51,13 @@ export default function MySaves () {
             </li>
 
 
-            <li>
+            <li id="saves-price">
                 ${priceFormatter(listing.price)}
             </li>
             
+            <li id="saves-bed-bath">
+                {listing.bed} bd | {listing.bath} bath | {listing.sqft} sqft
+            </li>
 
             {listing.streetAddress}, 
             
