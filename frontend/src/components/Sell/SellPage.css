@@ -126,4 +126,4 @@ select {
 input[type=integer]:focus, textarea:focus {
     outline: 4px solid lightskyblue;
     background-color: white;
-  }
+}
