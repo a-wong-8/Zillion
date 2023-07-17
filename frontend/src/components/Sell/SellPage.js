@@ -108,6 +108,10 @@ export default function SellPage() {
                     {/* <label for="photo-input" className="photo-button">
                         Add New Photo
                     </label> */}
+
+                    <h5 id="photo-note">
+                        * Upload multiple photos by holding the 'command' key on Mac, or 'ctrl' key on Windows. 
+                    </h5>
                 </label>
                 
                 <div id="home-facts-div">
