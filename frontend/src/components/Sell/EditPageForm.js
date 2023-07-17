@@ -34,26 +34,41 @@ export default function EditPageForm() {
     const[ description, setDescription] = useState(listing.description);
     const[ price, setPrice] = useState(listing.price);
     const[ yearBuilt, setYearBuilt] = useState(listing.yearBuilt);
+    const[ imageFile, setImageFile] = useState (null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const listingFill = {
-            ...listing,
-            streetAddress: streetAddress,
-            city: city,
-            state: state,
-            zipCode: zipCode,
-            bed: bed,
-            bath: bath,
-            sqft: sqft,
-            lotSize: lotSize,
-            category: category,
-            description: description,
-            price: price,
-            yearBuilt: yearBuilt
+            ...listing
         }
-        dispatch(updateListing(listingFill));
-        window.alert('Listing has been successfully edited.')
+
+        const formData = new FormData();
+        
+        formData.append('listing[streetAddress]', streetAddress);
+        formData.append('listing[city]', city);
+        formData.append('listing[state]', state);
+        formData.append('listing[zipCode]', zipCode);
+        formData.append('listing[bed]', bed);
+        formData.append('listing[bath]', bath);
+        formData.append('listing[sqft]', sqft);
+        formData.append('listing[lotSize]', lotSize);
+        formData.append('listing[category]', category);
+        formData.append('listing[description]', description);
+        formData.append('listing[price]', price);
+        formData.append('listing[yearBuilt]', yearBuilt);
+
+        if (imageFile.length !== 0) {  
+            imageFile.forEach(image => {
+            formData.append('listing[images][]', image);
+            })
+        }
+
+        try {   
+            dispatch(updateListing(formData, listingFill));
+            window.alert('Listing has been successfully edited.')
+        } catch (error) {
+            window.alert(error)
+        }
     }
 
     let img;
@@ -62,15 +77,23 @@ export default function EditPageForm() {
         img = listing.imageUrl.map((image, index) => (
             <li className="edit-photo-li">
                 <img key={index} src={image} alt="" id={`img${index}`}/>
-                <div className="edit-x" 
-                onClick={()=>{
-                    // listing.imageUrl = listing.imageUrl.splice(index, 1)
-                }}>
+                {/* <div className="edit-x" onClick={()=>{handleDelete(index)}}>
                     Delete
-                </div>
+                </div> */}
             </li>
           ));
     }
+
+    // const handleDelete = (index) => {
+    //     dupImgs = dupImgs.splice(index, 1);
+    // }
+
+    // let dupImgs = [...listing.imageUrl];
+
+    const handleFiles = ({ currentTarget }) => {
+        const files = Array.from(currentTarget.files);
+        setImageFile(files);
+    } 
 
     return (
     <div className="sell-form">
@@ -86,6 +109,7 @@ export default function EditPageForm() {
                 <div id="edit-photos">
                     <h4>Photos</h4>
                     {img}
+                    <input id="photo-input" className="photo-input" type="file" onChange={handleFiles} multiple/>
                 </div>
                 
                 <div id="home-facts-div">
