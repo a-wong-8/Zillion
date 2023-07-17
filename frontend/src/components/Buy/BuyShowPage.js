@@ -10,19 +10,26 @@ export default function BuyShowPage() {
     const {listingId} = useParams();
     let listing = useSelector((state)=>state.listings[listingId])
     const session = useSelector((state)=> Object.values(state.session))
-    const saves = useSelector((state)=> Object.values(state.saves))
-    const [savedListing, setSavedListing] = useState('')
+    // const saves = useSelector((state)=> Object.values(state.saves))
+    const saves = useSelector((state)=> (state.saves))
+    const [savedListing, setSavedListing] = useState(false)
 
-    let saved = false;
-
-    saves.map(listing=>{
-        if (listing.id === parseInt(listingId)) saved = true;
-    }) 
+    const switcher = () => {
+         if (saves[listingId] === undefined) {
+            setSavedListing(false)
+        } else if (saves[listingId]) {
+            setSavedListing(true)
+        }
+    }
 
     useEffect(()=>{
         dispatch(fetchListing(listingId));
         dispatch(fetchSaves());
-    },[dispatch, listingId, savedListing])
+    },[savedListing, listingId])
+    
+    useEffect(()=>{
+        switcher()
+    },[])
     
     if (listing === undefined) return null;
 
@@ -75,11 +82,12 @@ export default function BuyShowPage() {
     const handleClick = () => {
         if (session[0] === null) {
             window.alert('Please login or make an account to save a listing.')
-        } else if (!saved) {
+        } else if (!savedListing) {
+            setSavedListing(true);
             dispatch(saveListing(listingId, session[0].id));
-            setSavedListing(true)
-        } else if (saved) {
-            dispatch(unsaveListing(listingId, session[0].id))
+        } else if (savedListing) {
+            setSavedListing(false);
+            dispatch(unsaveListing(listingId, session[0].id));
         }
     }
 
@@ -93,7 +101,7 @@ export default function BuyShowPage() {
 
             <div className="show-page-info">
             <button onClick={handleClick} className="save-button">
-                {saved? 'Unsave' : 'Save'}
+                {savedListing? 'Unsave' : 'Save'}
             </button>
                 <ul>
                 <li key={listing.id} id="show-price">
