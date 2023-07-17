@@ -31,6 +31,7 @@ require "open-uri"
       }) 
     end
   
+    Save.destroy_all
     Listing.destroy_all
     
     puts 'Creating listings...'
