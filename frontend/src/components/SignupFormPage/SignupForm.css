@@ -28,12 +28,12 @@
 }
 
 .reqs-container {
-    display: flex;
-    justify-content: flex-start;
+    /* display: flex; */
+    /* justify-content: flex-start; */
     margin-right: 120px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     padding-top: 10px;
-    padding-left: 50px;
+    padding-left: 40px;
 }
 
 .reqs li {

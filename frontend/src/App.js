@@ -23,6 +23,8 @@ function App() {
 
         <Route exact path="/sell" component={SellPage}/>
 
+        <Route exact path="/signuppage" component={SignupFormPage}/>
+
         <Route exact path="/mylistings/listings/:listingId/edit" component={EditPage}/>
 
         <Route exact path="/mylistings/:userId" component={MyListingsPage}/>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from '../../store/session';
@@ -10,10 +10,40 @@ export default function SignupFormPage(props) {
 
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
-    // const[confirmPassword, setConfirmPassword] = useState('');
     const[errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+    const[characters, setCharacters] = useState(false);
+    const[specialChar, setSpecialChar] = useState(false);
+    const[upper, setUpper] = useState(false);
+    const[lower, setLower] = useState(false);
+    const[number, setNumber] = useState(false);
+
+    const special = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+    const uppers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lowers = 'abcdefghijklmnopqrstuvwxyz';
+    const numbers = '1234567890';
+
+    useEffect(()=> {
+      passwordChecker()
+    },[password, characters])
+
+    const passwordChecker = () => {
+      if (password.length >= 8) setCharacters(true)
+      else setCharacters(false)
+
+        for (let i = 0; i < password.length; i++) {
+          if (special.includes(password[i])) setSpecialChar(true)
+          if (uppers.includes(password[i])) setUpper(true);
+          if (lowers.includes(password[i])) setLower(true);
+          if (numbers.includes(password[i])) setNumber(true);
+        }
+        if (password.length === 0) {
+          setSpecialChar(false)
+          setUpper(false);
+          setLower(false);
+          setNumber(false);
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -49,6 +79,10 @@ export default function SignupFormPage(props) {
 
         <form id="login-form" onSubmit={handleSubmit}>
 
+              <ul className="errors1">
+                {errors.map((error) => <li key={error}>{error}</li>)}
+              </ul>
+
             <label className="email">Email 
                 <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} required placeholder="Enter email"/>
             </label>
@@ -61,32 +95,29 @@ export default function SignupFormPage(props) {
             <div className="reqs-container">
             <ul className="reqs">
               <li>
-                At least 8 characters
+                {characters? <span id="green">✔︎ At least 6 characters</span> : 'At least 8 characters'}
               </li>
               <li>
-                Mix of letters and numbers
+                {number && upper && lower ? <span id="green">✔︎ Mix of letters and numbers</span> : 'Mix of letters and numbers' } 
               </li>
               <li>
-                At least 1 special character 
+                {specialChar? <span id="green">✔︎ At least 1 special character</span> : 'At least 1 special character'} 
               </li>
               <li>
-                At least 1 lowercase letter and 1 uppercase letter
+                {upper && lower ? <span id="green">✔︎ At least 1 lowercase letter & 1 uppercase letter</span> : 'At least 1 lowercase letter & 1 uppercase letter'}
               </li>
             </ul>
             </div>
 
-            <ul className="errors">
-              {errors.map((error) => <li key={error}>{error}</li>)}
-            </ul>
-
             {/* <label>Confirm Password 
                 <input type="password" value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)} required placeholder="Confirm password"/>
-            </label> */}
+              </label> */}
 
             <button type="submit" className="button">Submit</button>
             <p className="terms">
               By submitting, I accept Zillion's term of use.
             </p>
+        
         </form>
         </>
     )
