@@ -49,6 +49,7 @@
 
 .my-saves-button:hover {
     cursor: pointer;
+    background-color: rgb(3,72,151);
 }
 
 #saves-price {
