@@ -57,12 +57,12 @@ export default function EditPageForm() {
         formData.append('listing[price]', price);
         formData.append('listing[yearBuilt]', yearBuilt);
 
-        if (imageFile.length !== 0) {  
+        if (imageFile) {
             imageFile.forEach(image => {
-            formData.append('listing[images][]', image);
+                formData.append('listing[images][]', image);
             })
         }
-
+    
         try {   
             dispatch(updateListing(formData, listingFill));
             window.alert('Listing has been successfully edited.')

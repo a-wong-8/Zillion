@@ -97,6 +97,10 @@
     font-size: 16px;
     color: white;
     border-radius: 5px;
+/* 
+    color: rgb(0, 112, 248);
+    background-color: white;
+    font-weight: 600; */
 }
 
 .save-button:hover {
