@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import './LoginForm.css';
@@ -9,15 +9,48 @@ const LoginForm = () => {
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
     const[errors, setErrors] = useState([]);
-
     const[signIn, setSignIn] = useState(true);
+
+    const[characters, setCharacters] = useState(false);
+    const[specialChar, setSpecialChar] = useState(false);
+    const[upper, setUpper] = useState(false);
+    const[lower, setLower] = useState(false);
+    const[number, setNumber] = useState(false);
+
+    const special = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+    const uppers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lowers = 'abcdefghijklmnopqrstuvwxyz';
+    const numbers = '1234567890';
+
+    useEffect(()=> {
+      passwordChecker()
+      setErrors([])
+    },[password, characters])
+
+    const passwordChecker = () => {
+      if (password.length >= 6) setCharacters(true)
+      else setCharacters(false)
+
+        for (let i = 0; i < password.length; i++) {
+          if (special.includes(password[i])) setSpecialChar(true)
+          if (uppers.includes(password[i])) setUpper(true);
+          if (lowers.includes(password[i])) setLower(true);
+          if (numbers.includes(password[i])) setNumber(true);
+        }
+        if (password.length === 0) {
+          setSpecialChar(false)
+          setUpper(false);
+          setLower(false);
+          setNumber(false);
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (signIn) {
-            
-           return dispatch(sessionActions.login({email, password}))
+          setErrors([]);
+          return dispatch(sessionActions.login({email, password}))
 
         .catch(async (res) => {
             let data;
@@ -25,7 +58,8 @@ const LoginForm = () => {
             try {
               data = await res.clone().json();
             } catch(error) {
-              window.alert('Invalid credentials.')
+              // window.alert('Invalid credentials.')
+              return setErrors(['Invalid credentials'])
               // data = await res.text(); 
             }
                 if (data?.errors) setErrors(data.errors);
@@ -34,17 +68,17 @@ const LoginForm = () => {
 
           });
         } else {
-            if (password) {
+            if (characters && specialChar && upper && lower && number) {
                 setErrors([]);
                 return dispatch(sessionActions.signup({ email, password }))
                 
                 .catch(async (res) => {
-                    console.log(errors);
                   let data;
                   try {
                     data = await res.clone().json();
                   } catch {
-                    window.alert('Invalid email or password.')
+                    // window.alert('Invalid email.')
+                    return setErrors(['Invalid email'])
                     // data = await res.text();
                   }
                   if (data?.errors) setErrors(data.errors);
@@ -88,12 +122,11 @@ const LoginForm = () => {
                 <div className="button-container">
                     <button type="submit" className="signin-button">Sign in</button>
                 </div>
-
-                <a className="guest" onClick={()=>guest()}>Sign in as guest</a>
-
                 <ul className="errors">
                     {errors.map(error => <li key={error}>{error}</li>)}
                 </ul>
+
+                <a className="guest" onClick={()=>guest()}>Sign in as guest</a>
 
             </form>
         </>
@@ -123,25 +156,25 @@ const LoginForm = () => {
             <div className="reqs-container">
             <ul className="reqs">
               <li>
-                At least 6 characters
+                {characters? <span id="green">✔︎ At least 6 characters</span> : 'At least 6 characters'}              
               </li>
               <li>
-                Mix of letters and numbers
+                {number && upper && lower ? <span id="green">✔︎ Mix of letters and numbers</span> : 'Mix of letters and numbers' }               
               </li>
               <li>
-                At least 1 special character 
+                {specialChar? <span id="green">✔︎ At least 1 special character</span> : 'At least 1 special character'} 
               </li>
               <li>
-                At least 1 lowercase letter and 1 uppercase letter
+                {upper && lower ? <span id="green">✔︎ At least 1 lowercase letter & 1 uppercase letter</span> : 'At least 1 lowercase letter & 1 uppercase letter'}
               </li>
             </ul>
             </div>
 
+
+            <button type="submit" className="signin-button">Submit</button>
             <ul className="errors">
               {errors.map((error) => <li key={error}>{error}</li>)}
             </ul>
-
-            <button type="submit" className="signin-button">Submit</button>
             <p className="terms">
               By submitting, I accept Zillion's term of use.
             </p>

@@ -109,6 +109,7 @@ export default function EditPageForm() {
                 <div id="edit-photos">
                     <h4>Photos</h4>
                     {img}
+                    <br/>
                     <input id="photo-input" className="photo-input" type="file" onChange={handleFiles} multiple/>
                     <h5 id="photo-note">
                         * To remove or add a photo, reupload only the desired photos. 

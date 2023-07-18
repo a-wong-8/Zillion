@@ -131,7 +131,7 @@ label {
 .errors > li {
     list-style: none;
     color: darkred;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 form::after {
@@ -153,4 +153,8 @@ input[type=text]:focus, input[type=password]:focus {
 .guest {
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+#green {
+    color: green;
 }
