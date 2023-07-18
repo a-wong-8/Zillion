@@ -7,7 +7,7 @@ class Api::SavesController < ApplicationController
             @listings = current_user.saved_listings
             render "api/listings/index"
         else 
-            render json: @listings.errors.full_messages, status: 422
+            render "api/listings/index"
         end
         # @saves = Save.all
         # render :index

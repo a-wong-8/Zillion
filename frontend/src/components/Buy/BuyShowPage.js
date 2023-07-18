@@ -101,7 +101,7 @@ export default function BuyShowPage() {
 
             <div className="show-page-info">
             <button onClick={handleClick} className="save-button">
-                {savedListing? 'Unsave' : 'Save'}
+                {savedListing? '♥︎ Unsave' : '♡ Save'}
             </button>
                 <ul>
                 <li key={listing.id} id="show-price">
