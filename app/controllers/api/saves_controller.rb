@@ -3,7 +3,7 @@ class Api::SavesController < ApplicationController
     wrap_parameters include: Save.attribute_names + ['listingId', 'userId']
 
     def index
-        if !current_user.nil?
+        if current_user
             @listings = current_user.saved_listings
             render "api/listings/index"
         else 
