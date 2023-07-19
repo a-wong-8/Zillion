@@ -1,6 +1,3 @@
-import SignupFormPage from '../SignupFormPage'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
-
 export default function Footer() {
     return (
         <footer>
@@ -10,8 +7,6 @@ export default function Footer() {
 
             <a href="https://github.com/a-wong-8/Zillion"> GitHub    
             </a> 
-
-            <Link to="/signuppage"> test</Link>
         </footer>
     )
 }
