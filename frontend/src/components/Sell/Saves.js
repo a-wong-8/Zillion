@@ -1,17 +1,23 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSaves, unsaveListing } from "../../store/listing";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import './Saves.css'
 
 export default function MySaves () {
     const dispatch = useDispatch();
     const userSaves = useSelector((state)=> Object.values(state.saves));
     const session = useSelector((state)=> Object.values(state.session));
+    const history = useHistory();
 
     useEffect(()=> {
         dispatch(fetchSaves());
     },[])
+
+    if (!session[0]) {
+        // window.alert('Please sign in to view your saves.');
+        history.push('/');
+    }
 
     const handleClick = (listing) => {
             dispatch(unsaveListing(listing.id, session[0].id))

@@ -4,8 +4,7 @@ import { createListing } from "../../store/listing";
 import './SellPage.css'
 
 export default function SellPage() {
-
-    const session = useSelector((state)=> Object.values(state.session))
+    const session = useSelector((state)=> Object.values(state.session));
 
     useEffect(() => {
         if (session[0] === null) {

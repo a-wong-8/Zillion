@@ -1,22 +1,23 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, NavLink, useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { deleteListing, fetchListings } from "../../store/listing";
-// import UserSaves from "./Saves";
 import './MyListingsPage.css'
 
 export default function MyListingsPage() {
     const dispatch = useDispatch();
     const {userId} = useParams();
-    const allListings = useSelector((state)=> Object.values(state.listings))
-    const session = useSelector((state)=> Object.values(state.session))
+    const allListings = useSelector((state)=> Object.values(state.listings));
+    const session = useSelector((state)=> Object.values(state.session));
+    const history = useHistory();
+    
+    if (session[0] === null) {
+        // window.alert('Please sign in to view your listings.');
+        history.push('/');
+    }
     
     useEffect(()=>{
         dispatch(fetchListings());
-        if (session[0] === null) {
-            window.alert('Please sign in to view your listings.')
-            window.location.href = `/`;
-        }
     },[dispatch, userId])
 
     const userListings = allListings.filter((listing) => String(listing.userId) === userId );
