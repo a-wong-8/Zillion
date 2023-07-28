@@ -22,7 +22,8 @@ export default function MyListingsPage() {
     const userListings = allListings.filter((listing) => String(listing.userId) === userId );
     
     const handleDelete = (listingId) => {
-        dispatch(deleteListing(listingId))
+        const confirm = window.confirm('Are you sure you want to delete this listing?');
+        if (confirm) dispatch(deleteListing(listingId))
     }
 
     return (

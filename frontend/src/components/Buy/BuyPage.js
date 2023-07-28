@@ -9,7 +9,7 @@ export default function BuyPage () {
     const dispatch = useDispatch();
     const mapStyles = { height: "800px", width: "800px" };
     const defaultCenter = {lat: 37.70091, lng: -122.18210};
-    const listings = useSelector((state)=> Object.values(state.listings))
+    const listings = useSelector((state)=> Object.values(state.listings));
 
     useEffect(()=> {
         dispatch(fetchListings())
