@@ -42,7 +42,6 @@ const LoginForm = () => {
 
       if (password.match(special)) setSpecialChar(true);
       else setSpecialChar(false);        
-        
     }
 
     const handleSubmit = (e) => {

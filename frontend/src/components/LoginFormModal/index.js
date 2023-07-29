@@ -14,6 +14,6 @@ export default function LoginFormModal () {
                 <LoginForm setShowModal={setShowModal}/>
             </Modal>
             )}
-     </>
+        </>
     )
 }
