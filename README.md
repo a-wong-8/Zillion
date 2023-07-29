@@ -17,9 +17,9 @@ Zillion uses a combination of frontend and server-side validations to provide th
     const numbers = /[0-9]/g;
 
     useEffect(()=> {
-      passwordChecker()
-      setErrors([])
-    },[password, characters])
+      passwordChecker();
+      setErrors([]);
+    },[password])
 
     const passwordChecker = () => {
       if (password.length >= 6) setCharacters(true);
