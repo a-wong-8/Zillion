@@ -1,5 +1,5 @@
 ![Alt Text](readme/readmelogo.png)
-Zillion is a clone of Zillow, a real estate website.
+Zillion is a clone of Zillow, a real estate marketplace.
 
 ## Technologies
 This project was made using:
