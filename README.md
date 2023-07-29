@@ -8,6 +8,7 @@ Backend: PostgreSQL, Rails, Ruby, and AWS
 Features
 ### User Authentication
 Zillion uses a combination of frontend and server-side validations to provide the user with a smooth and secure experience.
+
 ![Alt Text](readme/signin.gif)
 ```
     const special = /[!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
