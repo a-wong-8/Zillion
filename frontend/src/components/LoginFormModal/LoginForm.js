@@ -17,10 +17,10 @@ const LoginForm = () => {
     const[lower, setLower] = useState(false);
     const[number, setNumber] = useState(false);
 
-    const special = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-    const uppers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const lowers = 'abcdefghijklmnopqrstuvwxyz';
-    const numbers = '1234567890';
+    const special = /[!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+    const uppers = /[A-Z]/g;
+    const lowers = /[a-z]/g;
+    const numbers = /[0-9]/g;
 
     useEffect(()=> {
       passwordChecker()
@@ -28,21 +28,21 @@ const LoginForm = () => {
     },[password, characters])
 
     const passwordChecker = () => {
-      if (password.length >= 6) setCharacters(true)
-      else setCharacters(false)
+      if (password.length >= 6) setCharacters(true);
+      else setCharacters(false);
 
-        for (let i = 0; i < password.length; i++) {
-          if (special.includes(password[i])) setSpecialChar(true)
-          if (uppers.includes(password[i])) setUpper(true);
-          if (lowers.includes(password[i])) setLower(true);
-          if (numbers.includes(password[i])) setNumber(true);
-        }
-        if (password.length === 0) {
-          setSpecialChar(false)
-          setUpper(false);
-          setLower(false);
-          setNumber(false);
-        }
+      if (password.match(uppers)) setUpper(true);
+      else setUpper(false);
+
+      if (password.match(lowers)) setLower(true);
+      else setLower(false);
+
+      if (password.match(numbers)) setNumber(true);
+      else setNumber(false);
+
+      if (password.match(special)) setSpecialChar(true);
+      else setSpecialChar(false);        
+        
     }
 
     const handleSubmit = (e) => {
