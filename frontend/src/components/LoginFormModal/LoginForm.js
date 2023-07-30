@@ -25,7 +25,7 @@ const LoginForm = () => {
     useEffect(()=> {
       passwordChecker()
       setErrors([])
-    },[password, characters])
+    },[password, signIn])
 
     const passwordChecker = () => {
       if (password.length >= 6) setCharacters(true);
@@ -57,8 +57,7 @@ const LoginForm = () => {
             try {
               data = await res.clone().json();
             } catch(error) {
-              // window.alert('Invalid credentials.')
-              return setErrors(['Invalid credentials'])
+              return setErrors(['Incorrect email or password'])
               // data = await res.text(); 
             }
                 if (data?.errors) setErrors(data.errors);
@@ -76,8 +75,7 @@ const LoginForm = () => {
                   try {
                     data = await res.clone().json();
                   } catch {
-                    // window.alert('Invalid email.')
-                    return setErrors(['Invalid email'])
+                    return setErrors(['Please provide a valid email address'])
                     // data = await res.text();
                   }
                   if (data?.errors) setErrors(data.errors);
@@ -85,7 +83,7 @@ const LoginForm = () => {
                   else setErrors([res.statusText]);
                 });
               }
-              return setErrors(['Confirm Password requirements']);
+              return setErrors(['Please confirm password requirements']);
         }
     }
 
