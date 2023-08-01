@@ -22,8 +22,8 @@ export default function MyListingsPage() {
 
     const userListings = allListings.filter((listing) => String(listing.userId) === userId );
     
-    const handleDelete = (listingId) => {
-        const confirm = window.confirm('Are you sure you want to delete this listing?');
+    const handleDelete = (listingId, listing) => {
+        const confirm = window.confirm(`Are you sure you want to delete ${listing.streetAddress}, ${listing.city}?`);
         if (confirm) dispatch(deleteListing(listingId))
     }
 
@@ -59,7 +59,7 @@ export default function MyListingsPage() {
                     <br></br>
 
                     <button id="delete-button" 
-                    onClick={()=>handleDelete(listing.id)}>
+                    onClick={()=>handleDelete(listing.id, listing)}>
                         Delete
                     </button>
 

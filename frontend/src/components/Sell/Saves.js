@@ -47,8 +47,12 @@ export default function MySaves () {
 
         {userSaves.map(listing=>(
         <div className="saves-item">
-            <Link to={`/listings/${listing.id}`}>
+            
             <li>
+                <span id="heart" onClick={()=>handleClick(listing)}>
+                    ♥︎
+                </span>
+
                 <div>
                 {listing.imageUrl && listing.imageUrl.length > 0 && (
                     <img src={listing.imageUrl[0]} className="saved-first-img" alt="First Image" />
@@ -57,6 +61,7 @@ export default function MySaves () {
             </li>
 
 
+            <Link to={`/listings/${listing.id}`}>
             <li id="saves-price">
                 ${priceFormatter(listing.price)}
             </li>
@@ -73,9 +78,9 @@ export default function MySaves () {
             
             </Link>
 
-            <button onClick={()=>handleClick(listing)} className="my-saves-button">
+            {/* <button onClick={()=>handleClick(listing)} className="my-saves-button">
                 Unsave
-            </button>
+            </button> */}
         </div>
         
         ))}
