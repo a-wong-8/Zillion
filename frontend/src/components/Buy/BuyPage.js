@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GoogleMap } from '@react-google-maps/api';
 import GeocoderHome from "../Map/GeocoderHome"; 
 import BuyListingIndex from "./BuyListingIndex";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchListings } from "../../store/listing";
 
 export default function BuyPage () {
@@ -11,9 +11,11 @@ export default function BuyPage () {
     const defaultCenter = {lat: 37.70091, lng: -122.18210};
     const listings = useSelector((state)=> Object.values(state.listings));
 
+    const [randList, setRandList] = useState([])
+
     useEffect(()=> {
         dispatch(fetchListings())
-    },[dispatch])
+    },[])
 
     function formatNumber(number) {
         if (number > 999999 && number < 1099999) {
@@ -28,21 +30,23 @@ export default function BuyPage () {
         }
     }
 
-    function getRandomListings(list, count) {
-        const shuffled = list.sort(() => 0.5 - Math.random());
-        let final = shuffled.slice(0, count);
-        return final;
-    }
+    useEffect(()=> {
+        function getRandomListings(list, count) {
+                const shuffled = list.sort(() => 0.5 - Math.random());
+                let final = shuffled.slice(0, count);
+                return final;
+            }
 
-    let dupList = [...listings];
-    const randomList = getRandomListings(dupList, 8);
+        let dupList = [...listings];
+        setRandList(getRandomListings(dupList, 8))
+    },[dispatch])
 
     return (
         <div className="buy-page-container">
             
             <div className="buy-page-listings">
                 <ul>
-                    {randomList.map(listing => <BuyListingIndex listing={listing}/>)}
+                    {randList.map(listing => <BuyListingIndex listing={listing}/>)}
                 </ul>
             </div>
 

@@ -50,7 +50,7 @@ export default function MySaves () {
             
             <li>
                 <span id="heart" onClick={()=>handleClick(listing)}>
-                    ♥︎
+                    ♥︎ 
                 </span>
 
                 <div>
