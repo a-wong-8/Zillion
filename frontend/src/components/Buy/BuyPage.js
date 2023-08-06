@@ -10,9 +10,8 @@ export default function BuyPage () {
     const mapStyles = { height: "800px", width: "800px" };
     const defaultCenter = {lat: 37.70091, lng: -122.18210};
     const listings = useSelector((state)=> Object.values(state.listings));
-
-    const [randList, setRandList] = useState([])
-
+    const [randList, setRandList] = useState(listings);
+    
     useEffect(()=> {
         dispatch(fetchListings())
     },[])
@@ -36,7 +35,6 @@ export default function BuyPage () {
                 let final = shuffled.slice(0, count);
                 return final;
             }
-
         let dupList = [...listings];
         setRandList(getRandomListings(dupList, 8))
     },[dispatch])
@@ -46,7 +44,7 @@ export default function BuyPage () {
             
             <div className="buy-page-listings">
                 <ul>
-                    {randList.map(listing => <BuyListingIndex listing={listing}/>)}
+                    {randList.length > 1 ? randList.map(listing => <BuyListingIndex key={listing.id} listing={listing}/>) : listings.map(listing => <BuyListingIndex key={listing.id} listing={listing}/>)}
                 </ul>
             </div>
 
