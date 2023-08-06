@@ -39,7 +39,7 @@ export default function BuyShowPage() {
 
     if (listing.imageUrl !== null) {
         img = listing.imageUrl.map((image, index) => (
-            <img key={index} src={image} alt="" />
+            <img key={index} src={image} alt=""/>
           ));
     }
 

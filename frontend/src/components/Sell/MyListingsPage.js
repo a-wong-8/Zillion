@@ -23,7 +23,7 @@ export default function MyListingsPage() {
     const userListings = allListings.filter((listing) => String(listing.userId) === userId );
     
     const handleDelete = (listingId, listing) => {
-        const confirm = window.confirm(`Are you sure you want to delete ${listing.streetAddress}, ${listing.city}?`);
+        const confirm = window.confirm(`Are you sure you want to delete ${listing.streetAddress}, ${listing.city}? This action cannot be undone.`);
         if (confirm) dispatch(deleteListing(listingId))
     }
 
