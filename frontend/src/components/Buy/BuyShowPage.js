@@ -31,7 +31,7 @@ export default function BuyShowPage() {
     },[])
     
     if (listing === undefined) return null;
-
+ 
     const location = `${listing.streetAddress} ${listing.city}`;
 
     let img;
