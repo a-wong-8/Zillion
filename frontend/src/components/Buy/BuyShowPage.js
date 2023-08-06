@@ -10,7 +10,6 @@ export default function BuyShowPage() {
     const {listingId} = useParams();
     let listing = useSelector((state)=>state.listings[listingId])
     const session = useSelector((state)=> Object.values(state.session))
-    // const saves = useSelector((state)=> Object.values(state.saves))
     const saves = useSelector((state)=> (state.saves))
     const [savedListing, setSavedListing] = useState(false)
 
