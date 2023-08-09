@@ -74,3 +74,11 @@
     cursor: pointer;
     text-shadow: 1px 1px 5px rgb(0, 112, 248);
 }
+
+#no-saved {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+    font-size: 18px;
+}

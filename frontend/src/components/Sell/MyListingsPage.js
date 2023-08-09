@@ -36,7 +36,8 @@ export default function MyListingsPage() {
         <div className="my-listings-main-container">
         <div className="my-listings-display-container">
 
-            {userListings.map((listing)=>(
+            {userListings.length === 0 ? <span id="no-listings">No listings yet...</span> :
+            userListings.map((listing)=>(
                 <div id="my-listings-list-container">
 
                     <li>

@@ -45,7 +45,8 @@ export default function MySaves () {
         <div className="saves-main-container">
         <div className="saves-container">
 
-        {userSaves.map(listing=>(
+        {userSaves.length < 1? <span id="no-saved">No saved listings yet... 🏠 🏘️</span> :
+        userSaves.map(listing=>(
         <div className="saves-item">
             
             <li>
