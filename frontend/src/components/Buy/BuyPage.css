@@ -130,3 +130,13 @@
     display: flex;
     justify-content: center;
 }
+
+.skyline {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.skyline img {
+    margin-bottom: -25px;
+}

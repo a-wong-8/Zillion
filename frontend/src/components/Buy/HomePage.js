@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import banner from './banner3.png'
+import banner from './banner3.png';
 import { fetchListings } from '../../store/listing';
 import BuyListingIndex from './BuyListingIndex';
 import Footer from '../Navigation/Footer';
 import './BuyPage.css'
+import skyline from './skyline.jpg';
 
 export default function HomePage () {
     const listings = useSelector((state)=> Object.values(state.listings))
@@ -66,16 +67,19 @@ export default function HomePage () {
             </div>
         </div>
         
-        <h1 className="intro">Homes for you</h1>
+        <h1 className="intro">Homes for you in the San Francisco Bay Area</h1>
 
         <div className='main'>
+            <div className='home-page-listings'>
+                {/* <BuyListing /> */}
+                {dupList.map(listing => <BuyListingIndex listing={listing}/>)}
 
-        <div className='home-page-listings'>
-            {/* <BuyListing /> */}
-            {dupList.map(listing => <BuyListingIndex listing={listing}/>)}
+            </div>
+        </div>
 
-        </div>
-        </div>
+        <section className='skyline'>
+            <img src={skyline}/>
+        </section>
         <Footer/>
         </>
     )
