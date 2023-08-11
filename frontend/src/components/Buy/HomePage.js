@@ -6,7 +6,7 @@ import { fetchListings } from '../../store/listing';
 import BuyListingIndex from './BuyListingIndex';
 import Footer from '../Navigation/Footer';
 import './BuyPage.css'
-import skyline from './skyline.jpg';
+import skyline from './skyline.png';
 
 export default function HomePage () {
     const listings = useSelector((state)=> Object.values(state.listings))

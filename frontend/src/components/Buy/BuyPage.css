@@ -132,11 +132,11 @@
 }
 
 .skyline {
-    margin-top: 80px;
+    margin-top: 100px;
     display: flex;
     justify-content: center;
 }
 
 .skyline img {
-    margin-bottom: -25px;
+    margin-bottom: -5px;
 }
