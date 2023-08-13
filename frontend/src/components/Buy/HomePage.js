@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import banner from './banner3.png';
 import { fetchListings } from '../../store/listing';
 import BuyListingIndex from './BuyListingIndex';
 import Footer from '../Navigation/Footer';
 import './BuyPage.css'
 import skyline from './skyline.png';
+import buy from './buy.jpg';
+import sell from './sell.jpg';
 
 export default function HomePage () {
     const listings = useSelector((state)=> Object.values(state.listings))
     const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
-    const dispatch = useDispatch(); //
+    const dispatch = useDispatch(); 
+    const history = useHistory();
     
     // const slogan = ['This. The. House.', 'Find it. Buy it. Repeat it.', 'Home Is Where Your Story Begins.'];
     // let item = slogan[Math.floor(Math.random() * slogan.length)];
@@ -76,6 +79,21 @@ export default function HomePage () {
 
             </div>
         </div>
+
+        <section className='gray'>
+            <div id='sell-a-home-container' onClick={()=>history.push('/sell')}>
+                <img src={sell}></img>
+                <h1>Sell a home</h1>
+                <p>No matter what path you take to sell your home, we can help you navigate a successful sale.</p>
+                <button >See your options</button>
+            </div>
+            <div id='buy-a-home-container' onClick={()=>history.push('/buy')}>
+                <img src={buy}></img>
+                <h1>Buy a home</h1>
+                <p>No matter the type of home you are looking for, we can help you find it.</p>
+                <button >Explore homes</button>
+            </div>
+        </section>
 
         <section className='skyline'>
             <img src={skyline}/>

@@ -132,11 +132,121 @@
 }
 
 .skyline {
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
 }
 
 .skyline img {
     margin-bottom: -5px;
+}
+
+.gray {
+    background-color: rgb(249 249 251);
+    /* width: 100vw; */
+    height: 500px;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sell-a-home-container {
+    display: inline-block;
+    height: 400px;
+    width: 300px;
+    /* border: 1px solid #ddd; */
+    box-shadow: 2px 2px 4px #ccc;
+    margin: 20px;
+    transform: scale(1);
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+    background-color: white;
+    text-align: center;
+}
+
+#buy-a-home-container {
+    display: inline-block;
+    height: 400px;
+    width: 300px;
+    /* border: 1px solid #ddd; */
+    box-shadow: 2px 2px 4px #ccc;
+    margin: 20px;
+    transform: scale(1);
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+    background-color: white;
+    text-align: center;
+}
+
+#sell-a-home-container:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+#buy-a-home-container:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+#buy-a-home-container > img {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sell-a-home-container > img {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#buy-a-home-container > h1 {
+    padding-bottom: 15px;
+}
+
+#sell-a-home-container > h1 {
+    padding-bottom: 15px;
+}
+
+#buy-a-home-container > button {
+    background-color: white;
+    border-radius: 3px;
+    padding: 12px;
+    margin-top: 35px;
+    border: 1px solid rgb(44, 104, 246);
+    color: rgb(44, 104, 246);
+    font-size: 16px;
+}
+
+#sell-a-home-container > button {
+    background-color: white;
+    border-radius: 3px;
+    padding: 12px;
+    margin-top: 20px;
+    border: 1px solid rgb(44, 104, 246);
+    color: rgb(44, 104, 246);
+    font-size: 16px;
+}
+
+#buy-a-home-container:hover > button {
+    cursor: pointer;
+    background-color: rgb(44, 104, 246);
+    color: white;
+}
+
+#sell-a-home-container:hover > button {
+    cursor: pointer;
+    background-color: rgb(44, 104, 246);
+    color: white;
+}
+
+#buy-a-home-container > p {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#sell-a-home-container > p {
+    font-family: sans-serif;
+    margin-left: 10px;
+    padding-right: 10px;
 }

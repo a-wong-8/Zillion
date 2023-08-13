@@ -1,6 +1,6 @@
 .show-page {
     height: 100%;
-    width: 100vw;
+    width: 100%;
     justify-content: center;
     display: flex;
     z-index: 0;
@@ -10,7 +10,6 @@
     width: 85%;
     height: 100%;
     box-shadow: -6px -2px 5px -5px rgba(0, 0, 0, 0.5), 6px -2px 5px -5px rgba(0, 0, 0, 0.5);
-
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 10px; 
@@ -74,7 +73,7 @@
 .show-page-imgs img:not(:first-child) {
     /* height: 300px; */
     /* width: 390px; */
-    width: 50vh;
+    width: 49vh;
     height: 40vh;
     padding: 2px;
     padding-left: 0;
@@ -83,7 +82,7 @@
 .show-page-imgs img:first-child {
     /* height: 600px; */
     /* width: 780px; */
-    width: 100vh;
+    width: 98vh;
 }
 
 .show-page-map {
