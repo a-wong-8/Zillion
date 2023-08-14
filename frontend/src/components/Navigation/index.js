@@ -41,7 +41,7 @@ export default function Navigation() {
                     <NavLink exact to="/">
                       <img id="logo"src={logo}/>
                       {/* 🏠 Zillion */}
-                      </NavLink>
+                    </NavLink>
                 </li>
 
                 <li className="header-list-item">

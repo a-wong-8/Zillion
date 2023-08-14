@@ -90,20 +90,19 @@
 }
 
 .save-button {
-    background-color: rgb(0, 112, 248);
+    /* background-color: rgb(0, 112, 248); */
+    /* color: white; */
     border: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
-    color: white;
     border-radius: 5px;
-/* 
+    
     color: rgb(0, 112, 248);
     background-color: white;
-    font-weight: 600; */
+    /* font-weight: 600; */
 }
 
 .save-button:hover {
     cursor: pointer;
-    background-color: rgb(3,72,151);
+    /* background-color: rgb(3,72,151); */
 }
-
