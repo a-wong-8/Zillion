@@ -71,8 +71,6 @@
 }
 
 .show-page-imgs img:not(:first-child) {
-    /* height: 300px; */
-    /* width: 390px; */
     width: 49vh;
     height: 40vh;
     padding: 2px;
@@ -80,8 +78,6 @@
 }
 
 .show-page-imgs img:first-child {
-    /* height: 600px; */
-    /* width: 780px; */
     width: 98vh;
 }
 
@@ -99,7 +95,6 @@
     
     color: rgb(0, 112, 248);
     background-color: white;
-    /* font-weight: 600; */
 }
 
 .save-button:hover {

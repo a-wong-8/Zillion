@@ -54,7 +54,7 @@ export default function BuyShowPage() {
           }
         return newPrice;
     }
-
+ 
     const categoryFormatter = (category) => {
         switch (category) {
             case 'category1':
