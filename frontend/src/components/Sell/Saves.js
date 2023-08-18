@@ -15,7 +15,6 @@ export default function MySaves () {
     },[])
 
     if (!session[0]) {
-        // window.alert('Please sign in to view your saves.');
         history.push('/');
     }
 

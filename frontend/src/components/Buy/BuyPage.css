@@ -203,10 +203,12 @@
 
 #buy-a-home-container > h1 {
     padding-bottom: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #sell-a-home-container > h1 {
     padding-bottom: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #buy-a-home-container > button {

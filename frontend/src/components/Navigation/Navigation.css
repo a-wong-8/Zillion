@@ -12,10 +12,6 @@
     flex-grow: 1;
 }
 
-.header > ul {
-
-}
-
 .header-list {
     display: flex;
     padding: 0;
