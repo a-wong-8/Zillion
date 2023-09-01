@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchSaves, unsaveListing } from "../../store/listing";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import './Saves.css'
+import Footer from "../Navigation/Footer";
 
 export default function MySaves () {
     const dispatch = useDispatch();
@@ -85,6 +86,9 @@ export default function MySaves () {
         
         ))}
         </div>
+        </div>
+        <div id="save-footer">
+            <Footer />
         </div>
         </>
     )
