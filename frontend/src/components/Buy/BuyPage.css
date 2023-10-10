@@ -193,12 +193,16 @@
     display: flex;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 30px;
+    width: 300px;
 }
 
 #sell-a-home-container > img {
     display: flex;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 25px;
+    width: 300px;
 }
 
 #buy-a-home-container > h1 {
