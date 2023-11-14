@@ -40,7 +40,7 @@ export default function BuyListingIndex({listing}) {
     }
 
     return (
-<>
+    <>
         <div className="display-container">
 
             <Link to={`/listings/${listing.id}`}>
@@ -84,8 +84,8 @@ export default function BuyListingIndex({listing}) {
             </div>
 
             </Link>
-            </div>
-</>
+        </div>
+    </>
      
     )    
 }
