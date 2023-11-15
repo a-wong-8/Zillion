@@ -26,6 +26,10 @@
     padding-top: 8px;
 }
 
+#buy-header-button {
+    padding-right: 8px;
+}
+
 #logo {
     width: 160px;
 }
@@ -86,6 +90,7 @@ footer {
     height: 28px;
     color: white;
     background-color: rgb(0, 112, 248);
+    margin-left: 18px;
 }
 
 .profile-button:hover {

@@ -33,7 +33,7 @@ export default function Navigation() {
             <ul className="header-list">
 
                 <li className="header-list-item">
-                    <NavLink exact to="/buy"> Buy </NavLink>
+                    <NavLink exact to="/buy"><span id="buy-header-button">Buy</span>  </NavLink>
                     <NavLink exact to="/sell"> Sell </NavLink>
                 </li>
 
