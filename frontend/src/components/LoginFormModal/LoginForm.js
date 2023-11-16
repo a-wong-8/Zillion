@@ -151,20 +151,20 @@ const LoginForm = () => {
             </label>
 
             <div className="reqs-container">
-            <ul className="reqs">
-              <li>
-                {characters? <span id="green">✔︎ At least 6 characters</span> : 'At least 6 characters'}              
-              </li>
-              <li>
-                {number && upper && lower ? <span id="green">✔︎ Mix of letters and numbers</span> : 'Mix of letters and numbers' }               
-              </li>
-              <li>
-                {specialChar? <span id="green">✔︎ At least 1 special character</span> : 'At least 1 special character'} 
-              </li>
-              <li>
-                {upper && lower ? <span id="green">✔︎ At least 1 lowercase letter & 1 uppercase letter</span> : 'At least 1 lowercase letter & 1 uppercase letter'}
-              </li>
-            </ul>
+              <ul className="reqs">
+                <li>
+                  {characters? <span id="green">✔︎ At least 6 characters</span> : 'At least 6 characters'}              
+                </li>
+                <li>
+                  {number && upper && lower ? <span id="green">✔︎ Mix of letters and numbers</span> : 'Mix of letters and numbers' }               
+                </li>
+                <li>
+                  {specialChar? <span id="green">✔︎ At least 1 special character</span> : 'At least 1 special character'} 
+                </li>
+                <li>
+                  {upper && lower ? <span id="green">✔︎ At least 1 lowercase letter & 1 uppercase letter</span> : 'At least 1 lowercase letter & 1 uppercase letter'}
+                </li>
+              </ul>
             </div>
 
 
