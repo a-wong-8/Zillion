@@ -11,6 +11,8 @@ export default function BuyPage () {
     const defaultCenter = {lat: 37.70091, lng: -122.18210};
     const listings = useSelector((state)=> Object.values(state.listings));
     const [randList, setRandList] = useState(listings);
+
+    window.scrollTo(0, 0);
     
     useEffect(()=> {
         dispatch(fetchListings())

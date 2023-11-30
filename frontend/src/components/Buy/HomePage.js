@@ -16,9 +16,6 @@ export default function HomePage () {
     const [searchResults, setSearchResults] = useState([]);
     const dispatch = useDispatch(); 
     const history = useHistory();
-    
-    // const slogan = ['This. The. House.', 'Find it. Buy it. Repeat it.', 'Home Is Where Your Story Begins.'];
-    // let item = slogan[Math.floor(Math.random() * slogan.length)];
 
     useEffect(()=> {
         dispatch(fetchListings())

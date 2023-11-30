@@ -13,6 +13,8 @@ export default function BuyShowPage() {
     const saves = useSelector((state)=> (state.saves));
     const [savedListing, setSavedListing] = useState(false);
 
+    window.scrollTo(0, 0);
+
     const switcher = () => {
          if (saves[listingId] === undefined) {
             setSavedListing(false)
