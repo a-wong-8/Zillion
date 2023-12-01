@@ -40,7 +40,6 @@ export default function Navigation() {
                 <li id="home">
                     <NavLink exact to="/">
                       <img id="logo"src={logo}/>
-                      {/* 🏠 Zillion */}
                     </NavLink>
                 </li>
 

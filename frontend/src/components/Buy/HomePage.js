@@ -43,9 +43,7 @@ export default function HomePage () {
 
             <div className='search-bar-container'>
                 <div className="slogan">
-                    {/* Find it. Buy it. Repeat. */}
                     Home is where your story begins.
-                     {/* { item } */}
                 </div>
 
                 <input type='text' className='search' placeholder='Enter an address, city, or ZIP code                                                                          🔎' onChange={e => setQuery(e.target.value)}/>
