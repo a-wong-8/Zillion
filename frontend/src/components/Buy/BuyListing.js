@@ -16,9 +16,7 @@ export default function BuyListing() {
 
     return (
         <>
-        {/* // <ul>  */}
             {dupList.map(listing => <BuyListingIndex listing={listing}/>)}
-        {/* // </ul> */}
         </>
     )
 } 
