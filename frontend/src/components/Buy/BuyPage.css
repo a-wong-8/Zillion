@@ -47,8 +47,8 @@
     text-shadow: 1px 1px 3px black;
     top: -80%;
     /* transform: translate(50%, -50%); */
-    font-size: 36px;
     /* text-align: center; */
+    font-size: 36px;
     display: flex;
     padding-left: 50px;
 }
@@ -113,6 +113,10 @@
     height: 300px;
     font-family: 'Open-sans';
     font-weight: 350;
+}
+
+.display-item:hover {
+    color: black;
 }
 
 #price, #bed-bath, #category, #street, #city {
