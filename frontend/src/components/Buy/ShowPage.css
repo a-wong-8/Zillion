@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Open-sans';
+    src: url('../../../../Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype')
+}
+
 .show-page {
     height: 100%;
     width: 100%;
@@ -13,7 +18,7 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 10px; 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open-sans';
 }
 
 .show-page-info {
@@ -59,7 +64,7 @@
 
 #show-page-description p {
     line-height: 2.7ch;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Open-sans';
     font-size: 15px;
     padding-bottom: 20px;
 }
@@ -88,11 +93,10 @@
 .save-button {
     /* background-color: rgb(0, 112, 248); */
     /* color: white; */
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     border: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     border-radius: 5px;
-    
     color: rgb(0, 112, 248);
     background-color: white;
 }

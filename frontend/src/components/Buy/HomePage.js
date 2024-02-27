@@ -69,9 +69,7 @@ export default function HomePage () {
 
         <div className='main'>
             <div className='home-page-listings'>
-                {/* <BuyListing /> */}
                 {dupList.map(listing => <BuyListingIndex listing={listing}/>)}
-
             </div>
         </div>
 
@@ -98,4 +96,4 @@ export default function HomePage () {
     )
 };
 
-// this makes a home page w list of all the listings  
+// this makes a home page with list of all the listings  
