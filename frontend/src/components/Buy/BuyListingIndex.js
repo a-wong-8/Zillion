@@ -52,7 +52,7 @@ export default function BuyListingIndex({listing}) {
                 <li>
                     <div>
                     {listing.imageUrl && listing.imageUrl.length > 0 && (
-                        <img src={listing.imageUrl[0]} className="first-img" alt="First Image" />
+                        <img src={listing.imageUrl[0]} className="first-img" alt="First Image"/>
                         )}
                     </div>
                 </li>
