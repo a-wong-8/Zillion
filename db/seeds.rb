@@ -37,17 +37,17 @@ require "open-uri"
     puts 'Creating listings...'
 
     a = Listing.create!(
-      street_address: '15525 Maubert Ave',
-      city: 'San Leandro',
+      street_address: '221 Del Rosa Way',
+      city: 'San Mateo',
       state: 'CA',
-      zip_code: 94578,
+      zip_code: 94403,
       bed: 3,
       bath: 1,
       sqft: 884,
       lot_size: 5227,
       category: 'Single family',
       description: 'Welcome To This Charming Single-Family Residence with Brick Walkway and Planter Box! Bright Living Room Boasts Natural Lighting and Decorative Gas Fireplace Insert. The Kitchen/Dinning Features Built-In Decorative Cabinets Including Ironing Board, Gas Stove, Refrigerator and Granite Countertops/Backsplash. This Delightful Home Offers a Third Bedroom or Family Room Option, Providing You with the Flexibility to Create the Space That Suits Your Needs. Laundry Room with Cabinets, Utility Sink, Washer and Dryer.  Imagine Entertaining Your Family and Friends on the Beautiful Deck, Overlooking the Spacious Backyard. Additional Features: Freshly Painted Interiors, New Carpet, Dual-Pane Windows and Newer Water Heater. Conveniently Located Near San Leandro Schools, Hiking/Biking Trails near Lake Chabot, Oakland Zoo and Bayfair Mall. Commuters Delight: Minutes to HWY 580, 238, 880 and BART Stations. Come Make this Home Yours!',
-      price: 675000,
+      price: 975000,
       year_built: 1948,
       user_id: 1
       )

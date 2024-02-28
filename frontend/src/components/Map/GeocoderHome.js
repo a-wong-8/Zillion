@@ -7,6 +7,7 @@ export default function GeocoderHome({location, price, id}) {
   const [geolocation, setGeolocation] = useState(null)
   const geocoder = new window.google.maps.Geocoder();
   const history = useHistory();
+  const[hover, setHover] = useState(false);
 
   let address;
 
@@ -27,13 +28,25 @@ export default function GeocoderHome({location, price, id}) {
     history.push(`/listings/${id}`);
   }
 
+  const handleEnter = () => {
+    setHover(true);
+  }
+
+  const handleLeave = () => {
+    setHover(false);
+  }
+
   return (
-      <>
+      <div style={{position: 'relative', zIndex:hover? 1:0}}>
         <Marker
-          position={geolocation} label={{color: 'white', text: price}}           
+          position={geolocation} label={{color: hover ? '#ddd':'white', text: price }}    
+          style={{ position: 'relative', zIndex:hover? 1:0}}       
           onClick={handleClick} 
-          icon={mark}>
+          icon={mark}
+          onMouseOver={handleEnter}
+          onMouseOut={handleLeave}
+          >
         </Marker> 
-      </>
+      </div>
     )
 }
