@@ -216,13 +216,13 @@ require "open-uri"
 
       alpha = ('a'..'z').to_a
       
-        Listing.first(11).each_with_index do |listing, index1|
-          5.times do |index2|
-            listing.images.attach(
-              io: URI.open("https://zillion-seeds.s3.us-west-1.amazonaws.com/#{alpha[index1]}#{index2 + 1}.png"), 
-              filename: "#{alpha[index1]}#{index2 + 1}.png"
-              )
-          end
-        end
+      # Listing.first(11).each_with_index do |listing, index1|
+      #   5.times do |index2|
+      #     listing.images.attach(
+      #       io: URI.open("https://zillion-seeds.s3.us-west-1.amazonaws.com/#{alpha[index1]}#{index2 + 1}.png"), 
+      #       filename: "#{alpha[index1]}#{index2 + 1}.png"
+      #       )
+      #   end
+      # end
 
 puts "Done! =)"
