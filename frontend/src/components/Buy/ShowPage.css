@@ -91,9 +91,7 @@
 }
 
 .save-button {
-    /* background-color: rgb(0, 112, 248); */
-    /* color: white; */
-    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: none;
     font-size: 16px;
     border-radius: 5px;
@@ -103,5 +101,4 @@
 
 .save-button:hover {
     cursor: pointer;
-    /* background-color: rgb(3,72,151); */
 }
